@@ -11,13 +11,13 @@ y_lim:
 
 z_lim:
   min: 0.0
-  max: 1.6
+  max: 1.8
   step: 0.1
 
 roll_lim:
   min: 0.0
   max: math.pi*2
-  step: 1
+  step: 0.5
 
 pitch_lim:
   min: math.pi*-0.5
@@ -27,7 +27,7 @@ pitch_lim:
 yaws_lim:
   min: 0.0
   max: math.pi*2
-  step: 1
+  step: 0.5
 
 planner_time_limit: 0.5
 limits_reference_frame: 'base_link'

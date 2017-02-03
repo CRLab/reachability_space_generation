@@ -92,7 +92,7 @@ def load_params_ros():
 #     params[robot_move_group] = limit_params['robot_move_group']
 #     params[limits_reference_frame] = limit_params['limits_reference_frame']
 
-    return params
+#    return params
 
 
 if __name__ == '__main__':

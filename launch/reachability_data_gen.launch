@@ -1,16 +1,10 @@
 <launch>
 	<arg name="robot" />
-<!-- 
-	<param name="using_new_model_rec" value="True"/>
-	<param name="planning_scene_topic" value="/get_planning_scene"/>
-	<param name="run_recognition_topic" value="recognize_objects_action"/>
-	<param name="detected_model_frame_id" value="/world"/> -->
 
 	<!-- Start MoveIt -->
-	<include file="$(find fetch_moveit_config)/launch/move_group.launch" >
-		<arg name="info" value="true"/><!-- publish grasp markers -->
-	</include>
-
+	<!-- <include file="$(find fetch_moveit_config)/launch/move_group.launch" >
+		<arg name="info" value="true"/>
+	</include> -->
 
 	<rosparam command="load" file="$(find grasp_reachability_planning)/configs/$(arg robot).yaml"/>
 

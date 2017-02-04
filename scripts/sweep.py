@@ -4,13 +4,14 @@ import sys
 import rospy
 from moveit_commander import RobotCommander, roscpp_initialize, roscpp_shutdown
 from moveit_msgs.msg import RobotState
-import pandas as pd
 import numpy as np
 import math
 import PyKDL
 import tf_conversions
 import rospy
 import rosparam
+
+from datetime import datetime as dt
 
 import yaml
 
@@ -125,10 +126,6 @@ if __name__ == '__main__':
     robot = RobotCommander()
     rospy.sleep(1)
 
-    import IPython
-    IPython.embed()
-    assert(False)
-
     count = 0
     m = robot.get_group(robot_move_group)
     m.set_planning_time(planner_time_limit)
@@ -149,7 +146,7 @@ if __name__ == '__main__':
                             if len(plan.joint_trajectory.points) == 0:
                                 reachable = False
 
-                            fd = open("data.csv", 'a')
+                            fd = open("reachability_data_"+dt.now().strftime("%d_%m_%y_%I_%M%p")+".csv", 'a')
                             data = str(count) + ", " + str(x) + ", " + str(y) + ", " + str(z) + ", " + str(roll) + ", " + str(pitch) + ", " + str(yaw) + ", " + str(reachable) +"\n"
                             fd.write(data)
                             fd.close()
@@ -157,6 +154,12 @@ if __name__ == '__main__':
                             count += 1
 
                             print "status: " + str(count) + "/" + str(num_combinations)
+
+                            if count > 5:
+                                import IPython
+                                IPython.embed()
+                                assert(False)
+
 
 
     roscpp_shutdown()

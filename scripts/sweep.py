@@ -155,10 +155,10 @@ if __name__ == '__main__':
 
                             print "status: " + str(count) + "/" + str(num_combinations)
 
-                            if count > 5:
-                                import IPython
-                                IPython.embed()
-                                assert(False)
+                            # if count > 5:
+                            #     import IPython
+                            #     IPython.embed()
+                            #     assert(False)
 
 
 

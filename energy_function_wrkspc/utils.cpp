@@ -242,3 +242,50 @@ void testFlaNN() {
 	getClosestPoints(datasetMatNew, queriesMatNew);
 
 }
+
+void interpolation(
+	std::vector<double> query, 
+	std::vector<double> stepSize, 
+	std::vector<double> dims, 
+	std::vector<double> mins) 
+{
+	int ndims = query.size();
+	std::vector<double> indices(ndims);
+	std::vector<double> dists(ndims);
+
+	// ndivs
+	std::vector<double> ndivs(ndims);
+	for (int i = 0; i < ndims; ++i)
+	{
+		ndivs[i] = (query[i] - mins[i]) / stepSize[i];
+	}
+
+	// 000000
+	std::vector<double> weights(ndims);
+	std::vector<double> index(ndims);
+	int count = 1 << ndims;
+	for (int i = 0; i < count; ++i)
+	{
+		/* code */
+		double weight = 1;
+		for (int pos = 0; pos < ndims; ++pos)
+		{
+			int before = (count >> pos) & 0x1;
+    		double alpha = ndivs[i] - int(ndivs[i]);
+
+			weights[pos] = ((1.0 - before) * (1.0 - alpha) + (before) * (alpha));
+			weight *= weights[pos];
+			index[pos] = int(ndivs[i]) + before;
+		}
+	// collate index and weight
+		int full_index = index[ndims-1];
+		for (int dim = ndims-2; dim >= 0; --dim)
+		{
+			full_index += (full_index * dims[dim]) + index[dim];
+        // const auto ind = index_x + nx * (index_y + ny * index_z);
+		}
+		indices[i] = full_index;
+		dists[i] = weight;
+
+	}
+}

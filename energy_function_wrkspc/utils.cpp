@@ -243,6 +243,9 @@ void testFlaNN() {
 
 }
 
+// mins: lowest corner
+// dims: number of divisions in each dimensions
+// stepSize: size of each division
 void interpolation(
 	std::vector<double> query, 
 	std::vector<double> stepSize, 
@@ -288,4 +291,21 @@ void interpolation(
 		dists[i] = weight;
 
 	}
+}
+
+Eigen::MatrixXd normalize_data(const Eigen::MatrixXd M, std::vector<double> stepSize) 
+{
+	Eigen::MatrixXd M_normalized(M.rows(), M.cols());
+	for (int i = 0; i < M.cols(); ++i)
+	{
+		M_normalized.col(i) = M.col(i) / stepSize[i];
+	}
+	return M_normalized;
+}
+
+void interpolation_with_nearest_neighbors(Eigen::MatrixXd dataset, Eigen::MatrixXd queries)
+{ 
+	// find the 2^ndims nearest neighbors
+	// weight their values by the dist returned by NN
+
 }

@@ -22,6 +22,22 @@ GuidedReachablePotentialQualityEnergy::energy() const
   return potentialEnergy;
 }
 
+// TODO: create a constructor that will
+// load reahable map from file
+// two arrays: space -> value
+// build flann index from space array
+
+
+double GuidedReachablePotentialQualityEnergy::reachableQualityEnergy() const
+{
+  // get hand transform in object frame
+
+  // query data structure for reachability info
+
+  // return reachability value
+  return 0;
+}
+
 
 
 double GuidedReachablePotentialQualityEnergy::contactEnergy() const

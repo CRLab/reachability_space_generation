@@ -419,6 +419,7 @@ set (GRASPIT_CORE_SOURCES
     ${GSRC}/src/EGPlanner/energy/guidedAutoGraspEnergy.cpp 
     ${GSRC}/src/EGPlanner/energy/guidedPotentialQualityEnergy.cpp 
     ${GSRC}/src/EGPlanner/energy/guidedReachablePotentialQualityEnergy.cpp 
+    ${GSRC}/src/EGPlanner/energy/reachableEnergyUtils.cpp
     ${GSRC}/src/EGPlanner/energy/potentialQualityEnergy.cpp 
     ${GSRC}/src/EGPlanner/energy/strictAutoGraspEnergy.cpp 
     ${GSRC}/src/bodySensor.cpp

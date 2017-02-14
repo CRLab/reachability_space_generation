@@ -2386,9 +2386,32 @@ CMakeFiles/graspit.dir/src/EGPlanner/energy/guidedReachablePotentialQualityEnerg
 
 CMakeFiles/graspit.dir/src/EGPlanner/energy/guidedReachablePotentialQualityEnergy.cpp.o.provides.build: CMakeFiles/graspit.dir/src/EGPlanner/energy/guidedReachablePotentialQualityEnergy.cpp.o
 
+CMakeFiles/graspit.dir/src/EGPlanner/energy/reachableEnergyUtils.cpp.o: CMakeFiles/graspit.dir/flags.make
+CMakeFiles/graspit.dir/src/EGPlanner/energy/reachableEnergyUtils.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/EGPlanner/energy/reachableEnergyUtils.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_147)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/src/EGPlanner/energy/reachableEnergyUtils.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/src/EGPlanner/energy/reachableEnergyUtils.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/EGPlanner/energy/reachableEnergyUtils.cpp
+
+CMakeFiles/graspit.dir/src/EGPlanner/energy/reachableEnergyUtils.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graspit.dir/src/EGPlanner/energy/reachableEnergyUtils.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/EGPlanner/energy/reachableEnergyUtils.cpp > CMakeFiles/graspit.dir/src/EGPlanner/energy/reachableEnergyUtils.cpp.i
+
+CMakeFiles/graspit.dir/src/EGPlanner/energy/reachableEnergyUtils.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graspit.dir/src/EGPlanner/energy/reachableEnergyUtils.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/EGPlanner/energy/reachableEnergyUtils.cpp -o CMakeFiles/graspit.dir/src/EGPlanner/energy/reachableEnergyUtils.cpp.s
+
+CMakeFiles/graspit.dir/src/EGPlanner/energy/reachableEnergyUtils.cpp.o.requires:
+.PHONY : CMakeFiles/graspit.dir/src/EGPlanner/energy/reachableEnergyUtils.cpp.o.requires
+
+CMakeFiles/graspit.dir/src/EGPlanner/energy/reachableEnergyUtils.cpp.o.provides: CMakeFiles/graspit.dir/src/EGPlanner/energy/reachableEnergyUtils.cpp.o.requires
+	$(MAKE) -f CMakeFiles/graspit.dir/build.make CMakeFiles/graspit.dir/src/EGPlanner/energy/reachableEnergyUtils.cpp.o.provides.build
+.PHONY : CMakeFiles/graspit.dir/src/EGPlanner/energy/reachableEnergyUtils.cpp.o.provides
+
+CMakeFiles/graspit.dir/src/EGPlanner/energy/reachableEnergyUtils.cpp.o.provides.build: CMakeFiles/graspit.dir/src/EGPlanner/energy/reachableEnergyUtils.cpp.o
+
 CMakeFiles/graspit.dir/src/EGPlanner/energy/potentialQualityEnergy.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/src/EGPlanner/energy/potentialQualityEnergy.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/EGPlanner/energy/potentialQualityEnergy.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_147)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_148)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/src/EGPlanner/energy/potentialQualityEnergy.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/src/EGPlanner/energy/potentialQualityEnergy.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/EGPlanner/energy/potentialQualityEnergy.cpp
 
@@ -2411,7 +2434,7 @@ CMakeFiles/graspit.dir/src/EGPlanner/energy/potentialQualityEnergy.cpp.o.provide
 
 CMakeFiles/graspit.dir/src/EGPlanner/energy/strictAutoGraspEnergy.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/src/EGPlanner/energy/strictAutoGraspEnergy.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/EGPlanner/energy/strictAutoGraspEnergy.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_148)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_149)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/src/EGPlanner/energy/strictAutoGraspEnergy.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/src/EGPlanner/energy/strictAutoGraspEnergy.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/EGPlanner/energy/strictAutoGraspEnergy.cpp
 
@@ -2434,7 +2457,7 @@ CMakeFiles/graspit.dir/src/EGPlanner/energy/strictAutoGraspEnergy.cpp.o.provides
 
 CMakeFiles/graspit.dir/src/bodySensor.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/src/bodySensor.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/bodySensor.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_149)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_150)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/src/bodySensor.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/src/bodySensor.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/bodySensor.cpp
 
@@ -2457,7 +2480,7 @@ CMakeFiles/graspit.dir/src/bodySensor.cpp.o.provides.build: CMakeFiles/graspit.d
 
 CMakeFiles/graspit.dir/tinyxml/tinyxmlparser.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/tinyxml/tinyxmlparser.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/tinyxml/tinyxmlparser.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_150)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_151)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/tinyxml/tinyxmlparser.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/tinyxml/tinyxmlparser.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/tinyxml/tinyxmlparser.cpp
 
@@ -2480,7 +2503,7 @@ CMakeFiles/graspit.dir/tinyxml/tinyxmlparser.cpp.o.provides.build: CMakeFiles/gr
 
 CMakeFiles/graspit.dir/ui/DBase/dbaseDlg.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/DBase/dbaseDlg.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/DBase/dbaseDlg.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_151)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_152)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/DBase/dbaseDlg.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/DBase/dbaseDlg.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/DBase/dbaseDlg.cpp
 
@@ -2503,7 +2526,7 @@ CMakeFiles/graspit.dir/ui/DBase/dbaseDlg.cpp.o.provides.build: CMakeFiles/graspi
 
 CMakeFiles/graspit.dir/ui/DBase/dbasePlannerDlg.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/DBase/dbasePlannerDlg.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/DBase/dbasePlannerDlg.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_152)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_153)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/DBase/dbasePlannerDlg.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/DBase/dbasePlannerDlg.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/DBase/dbasePlannerDlg.cpp
 
@@ -2526,7 +2549,7 @@ CMakeFiles/graspit.dir/ui/DBase/dbasePlannerDlg.cpp.o.provides.build: CMakeFiles
 
 CMakeFiles/graspit.dir/src/DBase/dbase_grasp.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/src/DBase/dbase_grasp.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/DBase/dbase_grasp.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_153)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_154)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/src/DBase/dbase_grasp.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/src/DBase/dbase_grasp.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/DBase/dbase_grasp.cpp
 
@@ -2549,7 +2572,7 @@ CMakeFiles/graspit.dir/src/DBase/dbase_grasp.cpp.o.provides.build: CMakeFiles/gr
 
 CMakeFiles/graspit.dir/src/DBase/graspit_db_model.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/src/DBase/graspit_db_model.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/DBase/graspit_db_model.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_154)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_155)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/src/DBase/graspit_db_model.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/src/DBase/graspit_db_model.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/DBase/graspit_db_model.cpp
 
@@ -2572,7 +2595,7 @@ CMakeFiles/graspit.dir/src/DBase/graspit_db_model.cpp.o.provides.build: CMakeFil
 
 CMakeFiles/graspit.dir/src/DBase/graspit_db_grasp.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/src/DBase/graspit_db_grasp.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/DBase/graspit_db_grasp.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_155)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_156)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/src/DBase/graspit_db_grasp.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/src/DBase/graspit_db_grasp.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/DBase/graspit_db_grasp.cpp
 
@@ -2595,7 +2618,7 @@ CMakeFiles/graspit.dir/src/DBase/graspit_db_grasp.cpp.o.provides.build: CMakeFil
 
 CMakeFiles/graspit.dir/src/DBase/DBPlanner/database.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/src/DBase/DBPlanner/database.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/DBase/DBPlanner/database.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_156)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_157)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/src/DBase/DBPlanner/database.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/src/DBase/DBPlanner/database.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/DBase/DBPlanner/database.cpp
 
@@ -2618,7 +2641,7 @@ CMakeFiles/graspit.dir/src/DBase/DBPlanner/database.cpp.o.provides.build: CMakeF
 
 CMakeFiles/graspit.dir/src/DBase/DBPlanner/sql_database_manager.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/src/DBase/DBPlanner/sql_database_manager.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/DBase/DBPlanner/sql_database_manager.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_157)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_158)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/src/DBase/DBPlanner/sql_database_manager.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/src/DBase/DBPlanner/sql_database_manager.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/DBase/DBPlanner/sql_database_manager.cpp
 
@@ -2641,7 +2664,7 @@ CMakeFiles/graspit.dir/src/DBase/DBPlanner/sql_database_manager.cpp.o.provides.b
 
 CMakeFiles/graspit.dir/src/DBase/graspit_db_planner.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/src/DBase/graspit_db_planner.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/DBase/graspit_db_planner.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_158)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_159)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/src/DBase/graspit_db_planner.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/src/DBase/graspit_db_planner.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/DBase/graspit_db_planner.cpp
 
@@ -2664,7 +2687,7 @@ CMakeFiles/graspit.dir/src/DBase/graspit_db_planner.cpp.o.provides.build: CMakeF
 
 CMakeFiles/graspit.dir/src/DBase/taskDispatcher.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/src/DBase/taskDispatcher.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/DBase/taskDispatcher.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_159)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_160)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/src/DBase/taskDispatcher.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/src/DBase/taskDispatcher.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/DBase/taskDispatcher.cpp
 
@@ -2687,7 +2710,7 @@ CMakeFiles/graspit.dir/src/DBase/taskDispatcher.cpp.o.provides.build: CMakeFiles
 
 CMakeFiles/graspit.dir/src/DBase/graspPlanningTask.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/src/DBase/graspPlanningTask.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/DBase/graspPlanningTask.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_160)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_161)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/src/DBase/graspPlanningTask.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/src/DBase/graspPlanningTask.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/DBase/graspPlanningTask.cpp
 
@@ -2710,7 +2733,7 @@ CMakeFiles/graspit.dir/src/DBase/graspPlanningTask.cpp.o.provides.build: CMakeFi
 
 CMakeFiles/graspit.dir/src/DBase/preGraspCheckTask.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/src/DBase/preGraspCheckTask.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/DBase/preGraspCheckTask.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_161)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_162)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/src/DBase/preGraspCheckTask.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/src/DBase/preGraspCheckTask.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/DBase/preGraspCheckTask.cpp
 
@@ -2733,7 +2756,7 @@ CMakeFiles/graspit.dir/src/DBase/preGraspCheckTask.cpp.o.provides.build: CMakeFi
 
 CMakeFiles/graspit.dir/src/DBase/graspClusteringTask.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/src/DBase/graspClusteringTask.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/DBase/graspClusteringTask.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_162)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_163)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/src/DBase/graspClusteringTask.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/src/DBase/graspClusteringTask.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/DBase/graspClusteringTask.cpp
 
@@ -2756,7 +2779,7 @@ CMakeFiles/graspit.dir/src/DBase/graspClusteringTask.cpp.o.provides.build: CMake
 
 CMakeFiles/graspit.dir/src/DBase/graspTransferCheckTask.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/src/DBase/graspTransferCheckTask.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/DBase/graspTransferCheckTask.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_163)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_164)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/src/DBase/graspTransferCheckTask.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/src/DBase/graspTransferCheckTask.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/DBase/graspTransferCheckTask.cpp
 
@@ -2779,7 +2802,7 @@ CMakeFiles/graspit.dir/src/DBase/graspTransferCheckTask.cpp.o.provides.build: CM
 
 CMakeFiles/graspit.dir/src/DBase/tableCheckTask.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/src/DBase/tableCheckTask.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/DBase/tableCheckTask.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_164)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_165)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/src/DBase/tableCheckTask.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/src/DBase/tableCheckTask.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/DBase/tableCheckTask.cpp
 
@@ -2802,7 +2825,7 @@ CMakeFiles/graspit.dir/src/DBase/tableCheckTask.cpp.o.provides.build: CMakeFiles
 
 CMakeFiles/graspit.dir/src/DBase/compliantGraspCopyTask.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/src/DBase/compliantGraspCopyTask.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/DBase/compliantGraspCopyTask.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_165)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_166)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/src/DBase/compliantGraspCopyTask.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/src/DBase/compliantGraspCopyTask.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/DBase/compliantGraspCopyTask.cpp
 
@@ -2825,7 +2848,7 @@ CMakeFiles/graspit.dir/src/DBase/compliantGraspCopyTask.cpp.o.provides.build: CM
 
 CMakeFiles/graspit.dir/ply/ply.c.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ply/ply.c.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ply/ply.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_166)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_167)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/graspit.dir/ply/ply.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/graspit.dir/ply/ply.c.o   -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ply/ply.c
 
@@ -2848,7 +2871,7 @@ CMakeFiles/graspit.dir/ply/ply.c.o.provides.build: CMakeFiles/graspit.dir/ply/pl
 
 CMakeFiles/graspit.dir/ply/mesh_loader.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ply/mesh_loader.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ply/mesh_loader.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_167)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_168)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ply/mesh_loader.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ply/mesh_loader.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ply/mesh_loader.cpp
 
@@ -2871,7 +2894,7 @@ CMakeFiles/graspit.dir/ply/mesh_loader.cpp.o.provides.build: CMakeFiles/graspit.
 
 CMakeFiles/graspit.dir/src/Collision/Graspit/collisionModel.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/src/Collision/Graspit/collisionModel.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/Collision/Graspit/collisionModel.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_168)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_169)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/src/Collision/Graspit/collisionModel.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/src/Collision/Graspit/collisionModel.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/Collision/Graspit/collisionModel.cpp
 
@@ -2894,7 +2917,7 @@ CMakeFiles/graspit.dir/src/Collision/Graspit/collisionModel.cpp.o.provides.build
 
 CMakeFiles/graspit.dir/src/Collision/Graspit/collisionAlgorithms.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/src/Collision/Graspit/collisionAlgorithms.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/Collision/Graspit/collisionAlgorithms.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_169)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_170)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/src/Collision/Graspit/collisionAlgorithms.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/src/Collision/Graspit/collisionAlgorithms.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/Collision/Graspit/collisionAlgorithms.cpp
 
@@ -2917,7 +2940,7 @@ CMakeFiles/graspit.dir/src/Collision/Graspit/collisionAlgorithms.cpp.o.provides.
 
 CMakeFiles/graspit.dir/src/Collision/Graspit/graspitCollision.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/src/Collision/Graspit/graspitCollision.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/Collision/Graspit/graspitCollision.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_170)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_171)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/src/Collision/Graspit/graspitCollision.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/src/Collision/Graspit/graspitCollision.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/Collision/Graspit/graspitCollision.cpp
 
@@ -2940,7 +2963,7 @@ CMakeFiles/graspit.dir/src/Collision/Graspit/graspitCollision.cpp.o.provides.bui
 
 CMakeFiles/graspit.dir/src/dynamics/graspitDynamics.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/src/dynamics/graspitDynamics.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/dynamics/graspitDynamics.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_171)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_172)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/src/dynamics/graspitDynamics.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/src/dynamics/graspitDynamics.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/dynamics/graspitDynamics.cpp
 
@@ -2963,7 +2986,7 @@ CMakeFiles/graspit.dir/src/dynamics/graspitDynamics.cpp.o.provides.build: CMakeF
 
 CMakeFiles/graspit.dir/ui/mainWindow.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/mainWindow.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/mainWindow.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_172)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_173)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/mainWindow.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/mainWindow.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/mainWindow.cpp
 
@@ -2986,7 +3009,7 @@ CMakeFiles/graspit.dir/ui/mainWindow.cpp.o.provides.build: CMakeFiles/graspit.di
 
 CMakeFiles/graspit.dir/ui/archBuilderDlg.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/archBuilderDlg.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/archBuilderDlg.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_173)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_174)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/archBuilderDlg.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/archBuilderDlg.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/archBuilderDlg.cpp
 
@@ -3009,7 +3032,7 @@ CMakeFiles/graspit.dir/ui/archBuilderDlg.cpp.o.provides.build: CMakeFiles/graspi
 
 CMakeFiles/graspit.dir/ui/barrettHandDlg.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/barrettHandDlg.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/barrettHandDlg.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_174)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_175)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/barrettHandDlg.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/barrettHandDlg.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/barrettHandDlg.cpp
 
@@ -3032,7 +3055,7 @@ CMakeFiles/graspit.dir/ui/barrettHandDlg.cpp.o.provides.build: CMakeFiles/graspi
 
 CMakeFiles/graspit.dir/ui/bodyPropDlg.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/bodyPropDlg.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/bodyPropDlg.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_175)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_176)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/bodyPropDlg.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/bodyPropDlg.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/bodyPropDlg.cpp
 
@@ -3055,7 +3078,7 @@ CMakeFiles/graspit.dir/ui/bodyPropDlg.cpp.o.provides.build: CMakeFiles/graspit.d
 
 CMakeFiles/graspit.dir/ui/contactExaminerDlg.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/contactExaminerDlg.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/contactExaminerDlg.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_176)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_177)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/contactExaminerDlg.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/contactExaminerDlg.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/contactExaminerDlg.cpp
 
@@ -3078,7 +3101,7 @@ CMakeFiles/graspit.dir/ui/contactExaminerDlg.cpp.o.provides.build: CMakeFiles/gr
 
 CMakeFiles/graspit.dir/ui/eigenGraspDlg.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/eigenGraspDlg.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/eigenGraspDlg.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_177)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_178)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/eigenGraspDlg.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/eigenGraspDlg.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/eigenGraspDlg.cpp
 
@@ -3101,7 +3124,7 @@ CMakeFiles/graspit.dir/ui/eigenGraspDlg.cpp.o.provides.build: CMakeFiles/graspit
 
 CMakeFiles/graspit.dir/ui/gfoDlg.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/gfoDlg.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/gfoDlg.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_178)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_179)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/gfoDlg.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/gfoDlg.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/gfoDlg.cpp
 
@@ -3124,7 +3147,7 @@ CMakeFiles/graspit.dir/ui/gfoDlg.cpp.o.provides.build: CMakeFiles/graspit.dir/ui
 
 CMakeFiles/graspit.dir/ui/gloveCalibrationDlg.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/gloveCalibrationDlg.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/gloveCalibrationDlg.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_179)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_180)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/gloveCalibrationDlg.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/gloveCalibrationDlg.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/gloveCalibrationDlg.cpp
 
@@ -3147,7 +3170,7 @@ CMakeFiles/graspit.dir/ui/gloveCalibrationDlg.cpp.o.provides.build: CMakeFiles/g
 
 CMakeFiles/graspit.dir/ui/graspCaptureDlg.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/graspCaptureDlg.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/graspCaptureDlg.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_180)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_181)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/graspCaptureDlg.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/graspCaptureDlg.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/graspCaptureDlg.cpp
 
@@ -3170,7 +3193,7 @@ CMakeFiles/graspit.dir/ui/graspCaptureDlg.cpp.o.provides.build: CMakeFiles/grasp
 
 CMakeFiles/graspit.dir/ui/gwsProjDlg.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/gwsProjDlg.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/gwsProjDlg.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_181)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_182)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/gwsProjDlg.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/gwsProjDlg.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/gwsProjDlg.cpp
 
@@ -3193,7 +3216,7 @@ CMakeFiles/graspit.dir/ui/gwsProjDlg.cpp.o.provides.build: CMakeFiles/graspit.di
 
 CMakeFiles/graspit.dir/ui/qmDlg.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/qmDlg.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/qmDlg.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_182)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_183)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/qmDlg.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/qmDlg.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/qmDlg.cpp
 
@@ -3216,7 +3239,7 @@ CMakeFiles/graspit.dir/ui/qmDlg.cpp.o.provides.build: CMakeFiles/graspit.dir/ui/
 
 CMakeFiles/graspit.dir/ui/settingsDlg.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/settingsDlg.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/settingsDlg.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_183)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_184)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/settingsDlg.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/settingsDlg.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/settingsDlg.cpp
 
@@ -3239,7 +3262,7 @@ CMakeFiles/graspit.dir/ui/settingsDlg.cpp.o.provides.build: CMakeFiles/graspit.d
 
 CMakeFiles/graspit.dir/ui/Planner/plannerdlg.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/Planner/plannerdlg.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/Planner/plannerdlg.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_184)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_185)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/Planner/plannerdlg.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/Planner/plannerdlg.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/Planner/plannerdlg.cpp
 
@@ -3262,7 +3285,7 @@ CMakeFiles/graspit.dir/ui/Planner/plannerdlg.cpp.o.provides.build: CMakeFiles/gr
 
 CMakeFiles/graspit.dir/ui/EGPlanner/egPlannerDlg.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/EGPlanner/egPlannerDlg.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/EGPlanner/egPlannerDlg.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_185)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_186)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/EGPlanner/egPlannerDlg.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/EGPlanner/egPlannerDlg.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/EGPlanner/egPlannerDlg.cpp
 
@@ -3285,7 +3308,7 @@ CMakeFiles/graspit.dir/ui/EGPlanner/egPlannerDlg.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/graspit.dir/ui/EGPlanner/compliantPlannerDlg.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/EGPlanner/compliantPlannerDlg.cpp.o: /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/EGPlanner/compliantPlannerDlg.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_186)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_187)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/EGPlanner/compliantPlannerDlg.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/EGPlanner/compliantPlannerDlg.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/EGPlanner/compliantPlannerDlg.cpp
 
@@ -3308,7 +3331,7 @@ CMakeFiles/graspit.dir/ui/EGPlanner/compliantPlannerDlg.cpp.o.provides.build: CM
 
 CMakeFiles/graspit.dir/qt_image_collection.cpp.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/qt_image_collection.cpp.o: qt_image_collection.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_187)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_188)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/qt_image_collection.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/qt_image_collection.cpp.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/qt_image_collection.cpp
 
@@ -3331,7 +3354,7 @@ CMakeFiles/graspit.dir/qt_image_collection.cpp.o.provides.build: CMakeFiles/gras
 
 CMakeFiles/graspit.dir/include/moc_body.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/include/moc_body.cxx.o: include/moc_body.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_188)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_189)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/include/moc_body.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/include/moc_body.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/include/moc_body.cxx
 
@@ -3354,7 +3377,7 @@ CMakeFiles/graspit.dir/include/moc_body.cxx.o.provides.build: CMakeFiles/graspit
 
 CMakeFiles/graspit.dir/include/moc_robot.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/include/moc_robot.cxx.o: include/moc_robot.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_189)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_190)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/include/moc_robot.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/include/moc_robot.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/include/moc_robot.cxx
 
@@ -3377,7 +3400,7 @@ CMakeFiles/graspit.dir/include/moc_robot.cxx.o.provides.build: CMakeFiles/graspi
 
 CMakeFiles/graspit.dir/include/moc_world.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/include/moc_world.cxx.o: include/moc_world.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_190)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_191)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/include/moc_world.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/include/moc_world.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/include/moc_world.cxx
 
@@ -3400,7 +3423,7 @@ CMakeFiles/graspit.dir/include/moc_world.cxx.o.provides.build: CMakeFiles/graspi
 
 CMakeFiles/graspit.dir/include/moc_grasp.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/include/moc_grasp.cxx.o: include/moc_grasp.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_191)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_192)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/include/moc_grasp.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/include/moc_grasp.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/include/moc_grasp.cxx
 
@@ -3423,7 +3446,7 @@ CMakeFiles/graspit.dir/include/moc_grasp.cxx.o.provides.build: CMakeFiles/graspi
 
 CMakeFiles/graspit.dir/include/moc_worldElement.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/include/moc_worldElement.cxx.o: include/moc_worldElement.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_192)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_193)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/include/moc_worldElement.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/include/moc_worldElement.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/include/moc_worldElement.cxx
 
@@ -3446,7 +3469,7 @@ CMakeFiles/graspit.dir/include/moc_worldElement.cxx.o.provides.build: CMakeFiles
 
 CMakeFiles/graspit.dir/include/moc_graspitServer.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/include/moc_graspitServer.cxx.o: include/moc_graspitServer.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_193)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_194)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/include/moc_graspitServer.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/include/moc_graspitServer.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/include/moc_graspitServer.cxx
 
@@ -3469,7 +3492,7 @@ CMakeFiles/graspit.dir/include/moc_graspitServer.cxx.o.provides.build: CMakeFile
 
 CMakeFiles/graspit.dir/include/moc_ivmgr.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/include/moc_ivmgr.cxx.o: include/moc_ivmgr.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_194)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_195)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/include/moc_ivmgr.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/include/moc_ivmgr.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/include/moc_ivmgr.cxx
 
@@ -3492,7 +3515,7 @@ CMakeFiles/graspit.dir/include/moc_ivmgr.cxx.o.provides.build: CMakeFiles/graspi
 
 CMakeFiles/graspit.dir/include/EGPlanner/moc_egPlanner.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/include/EGPlanner/moc_egPlanner.cxx.o: include/EGPlanner/moc_egPlanner.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_195)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_196)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/include/EGPlanner/moc_egPlanner.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/include/EGPlanner/moc_egPlanner.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/include/EGPlanner/moc_egPlanner.cxx
 
@@ -3515,7 +3538,7 @@ CMakeFiles/graspit.dir/include/EGPlanner/moc_egPlanner.cxx.o.provides.build: CMa
 
 CMakeFiles/graspit.dir/include/EGPlanner/moc_simAnn.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/include/EGPlanner/moc_simAnn.cxx.o: include/EGPlanner/moc_simAnn.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_196)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_197)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/include/EGPlanner/moc_simAnn.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/include/EGPlanner/moc_simAnn.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/include/EGPlanner/moc_simAnn.cxx
 
@@ -3538,7 +3561,7 @@ CMakeFiles/graspit.dir/include/EGPlanner/moc_simAnn.cxx.o.provides.build: CMakeF
 
 CMakeFiles/graspit.dir/include/EGPlanner/moc_loopPlanner.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/include/EGPlanner/moc_loopPlanner.cxx.o: include/EGPlanner/moc_loopPlanner.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_197)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_198)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/include/EGPlanner/moc_loopPlanner.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/include/EGPlanner/moc_loopPlanner.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/include/EGPlanner/moc_loopPlanner.cxx
 
@@ -3561,7 +3584,7 @@ CMakeFiles/graspit.dir/include/EGPlanner/moc_loopPlanner.cxx.o.provides.build: C
 
 CMakeFiles/graspit.dir/include/EGPlanner/energy/moc_searchEnergy.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/include/EGPlanner/energy/moc_searchEnergy.cxx.o: include/EGPlanner/energy/moc_searchEnergy.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_198)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_199)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/include/EGPlanner/energy/moc_searchEnergy.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/include/EGPlanner/energy/moc_searchEnergy.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/include/EGPlanner/energy/moc_searchEnergy.cxx
 
@@ -3584,7 +3607,7 @@ CMakeFiles/graspit.dir/include/EGPlanner/energy/moc_searchEnergy.cxx.o.provides.
 
 CMakeFiles/graspit.dir/include/EGPlanner/moc_guidedPlanner.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/include/EGPlanner/moc_guidedPlanner.cxx.o: include/EGPlanner/moc_guidedPlanner.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_199)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_200)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/include/EGPlanner/moc_guidedPlanner.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/include/EGPlanner/moc_guidedPlanner.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/include/EGPlanner/moc_guidedPlanner.cxx
 
@@ -3607,7 +3630,7 @@ CMakeFiles/graspit.dir/include/EGPlanner/moc_guidedPlanner.cxx.o.provides.build:
 
 CMakeFiles/graspit.dir/include/Planner/moc_grasp_tester.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/include/Planner/moc_grasp_tester.cxx.o: include/Planner/moc_grasp_tester.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_200)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_201)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/include/Planner/moc_grasp_tester.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/include/Planner/moc_grasp_tester.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/include/Planner/moc_grasp_tester.cxx
 
@@ -3630,7 +3653,7 @@ CMakeFiles/graspit.dir/include/Planner/moc_grasp_tester.cxx.o.provides.build: CM
 
 CMakeFiles/graspit.dir/include/robots/moc_humanHand.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/include/robots/moc_humanHand.cxx.o: include/robots/moc_humanHand.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_201)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_202)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/include/robots/moc_humanHand.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/include/robots/moc_humanHand.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/include/robots/moc_humanHand.cxx
 
@@ -3653,7 +3676,7 @@ CMakeFiles/graspit.dir/include/robots/moc_humanHand.cxx.o.provides.build: CMakeF
 
 CMakeFiles/graspit.dir/include/robots/moc_m7tool.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/include/robots/moc_m7tool.cxx.o: include/robots/moc_m7tool.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_202)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_203)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/include/robots/moc_m7tool.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/include/robots/moc_m7tool.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/include/robots/moc_m7tool.cxx
 
@@ -3676,7 +3699,7 @@ CMakeFiles/graspit.dir/include/robots/moc_m7tool.cxx.o.provides.build: CMakeFile
 
 CMakeFiles/graspit.dir/include/robots/moc_m7.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/include/robots/moc_m7.cxx.o: include/robots/moc_m7.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_203)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_204)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/include/robots/moc_m7.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/include/robots/moc_m7.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/include/robots/moc_m7.cxx
 
@@ -3699,7 +3722,7 @@ CMakeFiles/graspit.dir/include/robots/moc_m7.cxx.o.provides.build: CMakeFiles/gr
 
 CMakeFiles/graspit.dir/include/robots/moc_barrett.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/include/robots/moc_barrett.cxx.o: include/robots/moc_barrett.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_204)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_205)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/include/robots/moc_barrett.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/include/robots/moc_barrett.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/include/robots/moc_barrett.cxx
 
@@ -3722,7 +3745,7 @@ CMakeFiles/graspit.dir/include/robots/moc_barrett.cxx.o.provides.build: CMakeFil
 
 CMakeFiles/graspit.dir/include/robots/moc_robonaut.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/include/robots/moc_robonaut.cxx.o: include/robots/moc_robonaut.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_205)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_206)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/include/robots/moc_robonaut.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/include/robots/moc_robonaut.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/include/robots/moc_robonaut.cxx
 
@@ -3745,7 +3768,7 @@ CMakeFiles/graspit.dir/include/robots/moc_robonaut.cxx.o.provides.build: CMakeFi
 
 CMakeFiles/graspit.dir/include/robots/moc_pr2Gripper.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/include/robots/moc_pr2Gripper.cxx.o: include/robots/moc_pr2Gripper.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_206)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_207)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/include/robots/moc_pr2Gripper.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/include/robots/moc_pr2Gripper.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/include/robots/moc_pr2Gripper.cxx
 
@@ -3768,7 +3791,7 @@ CMakeFiles/graspit.dir/include/robots/moc_pr2Gripper.cxx.o.provides.build: CMake
 
 CMakeFiles/graspit.dir/include/robots/moc_robotiq.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/include/robots/moc_robotiq.cxx.o: include/robots/moc_robotiq.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_207)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_208)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/include/robots/moc_robotiq.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/include/robots/moc_robotiq.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/include/robots/moc_robotiq.cxx
 
@@ -3791,7 +3814,7 @@ CMakeFiles/graspit.dir/include/robots/moc_robotiq.cxx.o.provides.build: CMakeFil
 
 CMakeFiles/graspit.dir/include/robots/moc_mcGrip.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/include/robots/moc_mcGrip.cxx.o: include/robots/moc_mcGrip.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_208)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_209)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/include/robots/moc_mcGrip.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/include/robots/moc_mcGrip.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/include/robots/moc_mcGrip.cxx
 
@@ -3814,7 +3837,7 @@ CMakeFiles/graspit.dir/include/robots/moc_mcGrip.cxx.o.provides.build: CMakeFile
 
 CMakeFiles/graspit.dir/ui/DBase/moc_dbaseDlg.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/DBase/moc_dbaseDlg.cxx.o: ui/DBase/moc_dbaseDlg.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_209)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_210)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/DBase/moc_dbaseDlg.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/DBase/moc_dbaseDlg.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/ui/DBase/moc_dbaseDlg.cxx
 
@@ -3837,7 +3860,7 @@ CMakeFiles/graspit.dir/ui/DBase/moc_dbaseDlg.cxx.o.provides.build: CMakeFiles/gr
 
 CMakeFiles/graspit.dir/ui/DBase/moc_dbasePlannerDlg.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/DBase/moc_dbasePlannerDlg.cxx.o: ui/DBase/moc_dbasePlannerDlg.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_210)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_211)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/DBase/moc_dbasePlannerDlg.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/DBase/moc_dbasePlannerDlg.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/ui/DBase/moc_dbasePlannerDlg.cxx
 
@@ -3860,7 +3883,7 @@ CMakeFiles/graspit.dir/ui/DBase/moc_dbasePlannerDlg.cxx.o.provides.build: CMakeF
 
 CMakeFiles/graspit.dir/include/DBase/moc_dbase_grasp.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/include/DBase/moc_dbase_grasp.cxx.o: include/DBase/moc_dbase_grasp.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_211)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_212)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/include/DBase/moc_dbase_grasp.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/include/DBase/moc_dbase_grasp.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/include/DBase/moc_dbase_grasp.cxx
 
@@ -3883,7 +3906,7 @@ CMakeFiles/graspit.dir/include/DBase/moc_dbase_grasp.cxx.o.provides.build: CMake
 
 CMakeFiles/graspit.dir/include/DBase/moc_graspit_db_planner.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/include/DBase/moc_graspit_db_planner.cxx.o: include/DBase/moc_graspit_db_planner.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_212)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_213)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/include/DBase/moc_graspit_db_planner.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/include/DBase/moc_graspit_db_planner.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/include/DBase/moc_graspit_db_planner.cxx
 
@@ -3906,7 +3929,7 @@ CMakeFiles/graspit.dir/include/DBase/moc_graspit_db_planner.cxx.o.provides.build
 
 CMakeFiles/graspit.dir/include/DBase/moc_graspPlanningTask.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/include/DBase/moc_graspPlanningTask.cxx.o: include/DBase/moc_graspPlanningTask.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_213)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_214)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/include/DBase/moc_graspPlanningTask.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/include/DBase/moc_graspPlanningTask.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/include/DBase/moc_graspPlanningTask.cxx
 
@@ -3929,7 +3952,7 @@ CMakeFiles/graspit.dir/include/DBase/moc_graspPlanningTask.cxx.o.provides.build:
 
 CMakeFiles/graspit.dir/ui/moc_mainWindow.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/moc_mainWindow.cxx.o: ui/moc_mainWindow.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_214)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_215)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/moc_mainWindow.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/moc_mainWindow.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/ui/moc_mainWindow.cxx
 
@@ -3952,7 +3975,7 @@ CMakeFiles/graspit.dir/ui/moc_mainWindow.cxx.o.provides.build: CMakeFiles/graspi
 
 CMakeFiles/graspit.dir/ui/moc_bodyPropDlg.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/moc_bodyPropDlg.cxx.o: ui/moc_bodyPropDlg.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_215)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_216)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/moc_bodyPropDlg.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/moc_bodyPropDlg.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/ui/moc_bodyPropDlg.cxx
 
@@ -3975,7 +3998,7 @@ CMakeFiles/graspit.dir/ui/moc_bodyPropDlg.cxx.o.provides.build: CMakeFiles/grasp
 
 CMakeFiles/graspit.dir/ui/moc_eigenGraspDlg.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/moc_eigenGraspDlg.cxx.o: ui/moc_eigenGraspDlg.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_216)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_217)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/moc_eigenGraspDlg.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/moc_eigenGraspDlg.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/ui/moc_eigenGraspDlg.cxx
 
@@ -3998,7 +4021,7 @@ CMakeFiles/graspit.dir/ui/moc_eigenGraspDlg.cxx.o.provides.build: CMakeFiles/gra
 
 CMakeFiles/graspit.dir/ui/EGPlanner/moc_egPlannerDlg.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/EGPlanner/moc_egPlannerDlg.cxx.o: ui/EGPlanner/moc_egPlannerDlg.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_217)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_218)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/EGPlanner/moc_egPlannerDlg.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/EGPlanner/moc_egPlannerDlg.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/ui/EGPlanner/moc_egPlannerDlg.cxx
 
@@ -4021,7 +4044,7 @@ CMakeFiles/graspit.dir/ui/EGPlanner/moc_egPlannerDlg.cxx.o.provides.build: CMake
 
 CMakeFiles/graspit.dir/ui/EGPlanner/moc_compliantPlannerDlg.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/EGPlanner/moc_compliantPlannerDlg.cxx.o: ui/EGPlanner/moc_compliantPlannerDlg.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_218)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_219)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/EGPlanner/moc_compliantPlannerDlg.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/EGPlanner/moc_compliantPlannerDlg.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/ui/EGPlanner/moc_compliantPlannerDlg.cxx
 
@@ -4044,7 +4067,7 @@ CMakeFiles/graspit.dir/ui/EGPlanner/moc_compliantPlannerDlg.cxx.o.provides.build
 
 CMakeFiles/graspit.dir/ui/Planner/moc_plannerdlg.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/Planner/moc_plannerdlg.cxx.o: ui/Planner/moc_plannerdlg.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_219)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_220)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/Planner/moc_plannerdlg.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/Planner/moc_plannerdlg.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/ui/Planner/moc_plannerdlg.cxx
 
@@ -4067,7 +4090,7 @@ CMakeFiles/graspit.dir/ui/Planner/moc_plannerdlg.cxx.o.provides.build: CMakeFile
 
 CMakeFiles/graspit.dir/ui/moc_graspCaptureDlg.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/moc_graspCaptureDlg.cxx.o: ui/moc_graspCaptureDlg.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_220)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_221)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/moc_graspCaptureDlg.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/moc_graspCaptureDlg.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/ui/moc_graspCaptureDlg.cxx
 
@@ -4090,7 +4113,7 @@ CMakeFiles/graspit.dir/ui/moc_graspCaptureDlg.cxx.o.provides.build: CMakeFiles/g
 
 CMakeFiles/graspit.dir/ui/moc_contactExaminerDlg.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/moc_contactExaminerDlg.cxx.o: ui/moc_contactExaminerDlg.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_221)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_222)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/moc_contactExaminerDlg.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/moc_contactExaminerDlg.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/ui/moc_contactExaminerDlg.cxx
 
@@ -4113,7 +4136,7 @@ CMakeFiles/graspit.dir/ui/moc_contactExaminerDlg.cxx.o.provides.build: CMakeFile
 
 CMakeFiles/graspit.dir/ui/moc_settingsDlg.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/moc_settingsDlg.cxx.o: ui/moc_settingsDlg.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_222)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_223)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/moc_settingsDlg.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/moc_settingsDlg.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/ui/moc_settingsDlg.cxx
 
@@ -4136,7 +4159,7 @@ CMakeFiles/graspit.dir/ui/moc_settingsDlg.cxx.o.provides.build: CMakeFiles/grasp
 
 CMakeFiles/graspit.dir/ui/moc_gfoDlg.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/moc_gfoDlg.cxx.o: ui/moc_gfoDlg.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_223)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_224)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/moc_gfoDlg.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/moc_gfoDlg.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/ui/moc_gfoDlg.cxx
 
@@ -4159,7 +4182,7 @@ CMakeFiles/graspit.dir/ui/moc_gfoDlg.cxx.o.provides.build: CMakeFiles/graspit.di
 
 CMakeFiles/graspit.dir/ui/moc_qmDlg.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/moc_qmDlg.cxx.o: ui/moc_qmDlg.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_224)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_225)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/moc_qmDlg.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/moc_qmDlg.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/ui/moc_qmDlg.cxx
 
@@ -4182,7 +4205,7 @@ CMakeFiles/graspit.dir/ui/moc_qmDlg.cxx.o.provides.build: CMakeFiles/graspit.dir
 
 CMakeFiles/graspit.dir/ui/moc_gwsProjDlg.cxx.o: CMakeFiles/graspit.dir/flags.make
 CMakeFiles/graspit.dir/ui/moc_gwsProjDlg.cxx.o: ui/moc_gwsProjDlg.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_225)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/CMakeFiles $(CMAKE_PROGRESS_226)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/graspit.dir/ui/moc_gwsProjDlg.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/graspit.dir/ui/moc_gwsProjDlg.cxx.o -c /home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/ui/moc_gwsProjDlg.cxx
 
@@ -4293,6 +4316,7 @@ graspit_OBJECTS = \
 "CMakeFiles/graspit.dir/src/EGPlanner/energy/guidedAutoGraspEnergy.cpp.o" \
 "CMakeFiles/graspit.dir/src/EGPlanner/energy/guidedPotentialQualityEnergy.cpp.o" \
 "CMakeFiles/graspit.dir/src/EGPlanner/energy/guidedReachablePotentialQualityEnergy.cpp.o" \
+"CMakeFiles/graspit.dir/src/EGPlanner/energy/reachableEnergyUtils.cpp.o" \
 "CMakeFiles/graspit.dir/src/EGPlanner/energy/potentialQualityEnergy.cpp.o" \
 "CMakeFiles/graspit.dir/src/EGPlanner/energy/strictAutoGraspEnergy.cpp.o" \
 "CMakeFiles/graspit.dir/src/bodySensor.cpp.o" \
@@ -4464,6 +4488,7 @@ libgraspit.so: CMakeFiles/graspit.dir/src/EGPlanner/energy/dynamicAutoGraspEnerg
 libgraspit.so: CMakeFiles/graspit.dir/src/EGPlanner/energy/guidedAutoGraspEnergy.cpp.o
 libgraspit.so: CMakeFiles/graspit.dir/src/EGPlanner/energy/guidedPotentialQualityEnergy.cpp.o
 libgraspit.so: CMakeFiles/graspit.dir/src/EGPlanner/energy/guidedReachablePotentialQualityEnergy.cpp.o
+libgraspit.so: CMakeFiles/graspit.dir/src/EGPlanner/energy/reachableEnergyUtils.cpp.o
 libgraspit.so: CMakeFiles/graspit.dir/src/EGPlanner/energy/potentialQualityEnergy.cpp.o
 libgraspit.so: CMakeFiles/graspit.dir/src/EGPlanner/energy/strictAutoGraspEnergy.cpp.o
 libgraspit.so: CMakeFiles/graspit.dir/src/bodySensor.cpp.o
@@ -4660,6 +4685,7 @@ CMakeFiles/graspit.dir/requires: CMakeFiles/graspit.dir/src/EGPlanner/energy/dyn
 CMakeFiles/graspit.dir/requires: CMakeFiles/graspit.dir/src/EGPlanner/energy/guidedAutoGraspEnergy.cpp.o.requires
 CMakeFiles/graspit.dir/requires: CMakeFiles/graspit.dir/src/EGPlanner/energy/guidedPotentialQualityEnergy.cpp.o.requires
 CMakeFiles/graspit.dir/requires: CMakeFiles/graspit.dir/src/EGPlanner/energy/guidedReachablePotentialQualityEnergy.cpp.o.requires
+CMakeFiles/graspit.dir/requires: CMakeFiles/graspit.dir/src/EGPlanner/energy/reachableEnergyUtils.cpp.o.requires
 CMakeFiles/graspit.dir/requires: CMakeFiles/graspit.dir/src/EGPlanner/energy/potentialQualityEnergy.cpp.o.requires
 CMakeFiles/graspit.dir/requires: CMakeFiles/graspit.dir/src/EGPlanner/energy/strictAutoGraspEnergy.cpp.o.requires
 CMakeFiles/graspit.dir/requires: CMakeFiles/graspit.dir/src/bodySensor.cpp.o.requires

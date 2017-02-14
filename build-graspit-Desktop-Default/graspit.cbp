@@ -450,6 +450,8 @@
       </Unit>
       <Unit filename="/home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/EGPlanner/energy/potentialQualityEnergy.cpp">
       </Unit>
+      <Unit filename="/home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/EGPlanner/energy/reachableEnergyUtils.cpp">
+      </Unit>
       <Unit filename="/home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/EGPlanner/energy/searchEnergy.cpp">
       </Unit>
       <Unit filename="/home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/src/EGPlanner/energy/searchEnergyFactory.cpp">

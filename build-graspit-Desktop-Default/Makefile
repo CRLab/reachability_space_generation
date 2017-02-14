@@ -1441,6 +1441,30 @@ src/EGPlanner/energy/potentialQualityEnergy.cpp.s:
 	$(MAKE) -f CMakeFiles/graspit.dir/build.make CMakeFiles/graspit.dir/src/EGPlanner/energy/potentialQualityEnergy.cpp.s
 .PHONY : src/EGPlanner/energy/potentialQualityEnergy.cpp.s
 
+src/EGPlanner/energy/reachableEnergyUtils.o: src/EGPlanner/energy/reachableEnergyUtils.cpp.o
+.PHONY : src/EGPlanner/energy/reachableEnergyUtils.o
+
+# target to build an object file
+src/EGPlanner/energy/reachableEnergyUtils.cpp.o:
+	$(MAKE) -f CMakeFiles/graspit.dir/build.make CMakeFiles/graspit.dir/src/EGPlanner/energy/reachableEnergyUtils.cpp.o
+.PHONY : src/EGPlanner/energy/reachableEnergyUtils.cpp.o
+
+src/EGPlanner/energy/reachableEnergyUtils.i: src/EGPlanner/energy/reachableEnergyUtils.cpp.i
+.PHONY : src/EGPlanner/energy/reachableEnergyUtils.i
+
+# target to preprocess a source file
+src/EGPlanner/energy/reachableEnergyUtils.cpp.i:
+	$(MAKE) -f CMakeFiles/graspit.dir/build.make CMakeFiles/graspit.dir/src/EGPlanner/energy/reachableEnergyUtils.cpp.i
+.PHONY : src/EGPlanner/energy/reachableEnergyUtils.cpp.i
+
+src/EGPlanner/energy/reachableEnergyUtils.s: src/EGPlanner/energy/reachableEnergyUtils.cpp.s
+.PHONY : src/EGPlanner/energy/reachableEnergyUtils.s
+
+# target to generate assembly for a file
+src/EGPlanner/energy/reachableEnergyUtils.cpp.s:
+	$(MAKE) -f CMakeFiles/graspit.dir/build.make CMakeFiles/graspit.dir/src/EGPlanner/energy/reachableEnergyUtils.cpp.s
+.PHONY : src/EGPlanner/energy/reachableEnergyUtils.cpp.s
+
 src/EGPlanner/energy/searchEnergy.o: src/EGPlanner/energy/searchEnergy.cpp.o
 .PHONY : src/EGPlanner/energy/searchEnergy.o
 
@@ -4374,6 +4398,9 @@ help:
 	@echo "... src/EGPlanner/energy/potentialQualityEnergy.o"
 	@echo "... src/EGPlanner/energy/potentialQualityEnergy.i"
 	@echo "... src/EGPlanner/energy/potentialQualityEnergy.s"
+	@echo "... src/EGPlanner/energy/reachableEnergyUtils.o"
+	@echo "... src/EGPlanner/energy/reachableEnergyUtils.i"
+	@echo "... src/EGPlanner/energy/reachableEnergyUtils.s"
 	@echo "... src/EGPlanner/energy/searchEnergy.o"
 	@echo "... src/EGPlanner/energy/searchEnergy.i"
 	@echo "... src/EGPlanner/energy/searchEnergy.s"

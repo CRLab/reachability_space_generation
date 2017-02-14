@@ -44,7 +44,8 @@ flann::Matrix<ValueType> convertEigen2Flann(
 void getClosestPoints(flann::Index<flann::L2<double> > index, Eigen::MatrixXd queries,
         flann::Matrix<int> indices, flann::Matrix<double> dists, int nn ) ;
 void testFlaNN();
-Eigen::MatrixXd normalize_data(const Eigen::MatrixXd M, std::vector<double> stepSize);
+//Eigen::MatrixXd normalize_data(const Eigen::MatrixXd M, std::vector<double> stepSize);
+Eigen::MatrixXd normalize_data(const Eigen::MatrixXd M, Eigen::MatrixXd stepSize);
 double interpolation_nearest_neighbors(Eigen::VectorXd targetData, flann::Matrix<int> indices, flann::Matrix<double> dists);
 
 

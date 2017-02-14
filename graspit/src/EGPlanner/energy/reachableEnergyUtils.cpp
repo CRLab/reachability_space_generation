@@ -287,12 +287,12 @@ void interpolation(
     }
 }
 
-Eigen::MatrixXd normalize_data(const Eigen::MatrixXd M, std::vector<double> stepSize)
+Eigen::MatrixXd normalize_data(const Eigen::MatrixXd M, Eigen::MatrixXd stepSize)
 {
     Eigen::MatrixXd M_normalized(M.rows(), M.cols());
     for (int i = 0; i < M.cols(); ++i)
     {
-        M_normalized.col(i) = M.col(i) / stepSize[i];
+        M_normalized.col(i) = M.col(i) / stepSize(i);
     }
     return M_normalized;
 }

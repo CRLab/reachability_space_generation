@@ -19,7 +19,8 @@ class GuidedReachablePotentialQualityEnergy: public SearchEnergy
   private:
     flann::Index<flann::L2<double> > *poseFlannIndex ;
     Eigen::VectorXd isReachableFlagMatrix;
-    std::vector<double> stepSize;
+    Eigen::VectorXd stepSize;
+//    std::vector<double> stepSize;
 
 
 };

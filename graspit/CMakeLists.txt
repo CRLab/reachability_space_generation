@@ -188,6 +188,7 @@ set (GRASPIT_EGPLANNER_ENERGY_HEADERS
     ${GSRC}/include/EGPlanner/energy/guidedAutoGraspEnergy.h 
     ${GSRC}/include/EGPlanner/energy/guidedPotentialQualityEnergy.h 
     ${GSRC}/include/EGPlanner/energy/guidedReachablePotentialQualityEnergy.h 
+    ${GSRC}/include/EGPlanner/energy/reachableEnergyUtils.h
     ${GSRC}/include/EGPlanner/energy/potentialQualityEnergy.h
     ${GSRC}/include/EGPlanner/energy/strictAutoGraspEnergy.h
 )

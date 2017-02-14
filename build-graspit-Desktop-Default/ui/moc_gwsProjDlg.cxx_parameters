@@ -1,0 +1,13 @@
+-I/usr/include/qt4
+-I/usr/include/qt4/Qt3Support
+-I/usr/include/qt4/QtSql
+-I/usr/include/qt4/QtCore
+-Dqh_QHpointer
+-D$<$<NOT:$<CONFIG:Debug>>:QT_NO_DEBUG>
+-DQT3_SUPPORT
+-DQT_3SUPPORT_LIB
+-DQT_SQL_LIB
+-DQT_CORE_LIB
+-o
+/home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/build-graspit-Desktop-Default/ui/moc_gwsProjDlg.cxx
+/home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/graspit/ui/gwsProjDlg.h

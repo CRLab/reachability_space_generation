@@ -1,6 +1,7 @@
 
 // g++ utils.cpp -I/usr/local/ -L/usr/local/lib -lhdf5 -o reach_output
 // g++ utils.cpp -I /usr/include/hdf5/serial/ -lhdf5_serial -o reach_output
+// mpiCC utils.cpp -I/usr/local/ -L/usr/local/lib -lhdf5 -o reach_output
 
 // /usr/include/eigen3/Eigen
 
@@ -33,7 +34,10 @@ template <typename ValueType>
 flann::Matrix<ValueType> convertEigen2Flann(
     const Eigen::Matrix<ValueType, Eigen::Dynamic, Eigen::Dynamic, Eigen::ColMajor>& _mEigen
 );
-void getClosestPoints(Eigen::MatrixXd dataset, Eigen::MatrixXd queries);
+// void getClosestPoints(Eigen::MatrixXd dataset, Eigen::MatrixXd queries);
+// void getClosestPoints(flann::Index<flann::L2<double> > index, Eigen::MatrixXd queries, int nn);
+void getClosestPoints(flann::Index<flann::L2<double> > index, Eigen::MatrixXd queries, 
+		flann::Matrix<int> indices, flann::Matrix<double> dists, int nn ) ;
 void testFlaNN();
 
 
@@ -192,7 +196,85 @@ flann::Matrix<ValueType> convertVector2Flann(
 }
 
 
-void getClosestPoints(Eigen::MatrixXd dataset, Eigen::MatrixXd queries) {
+flann::Index<flann::L2<double> > buildFlannIndex(Eigen::MatrixXd dataset) {
+	// assert(dataset.cols() == queries.cols());
+
+	flann::Matrix<double> datasetFlaNN;
+	datasetFlaNN = convertEigen2Flann(dataset);
+
+	cout << "datasetFlaNN: \t" << datasetFlaNN.rows << ", " << datasetFlaNN.cols << endl;
+	cout << "convertEigen2Flann successful" << endl;
+
+	// construct an randomized kd-tree index using 4 kd-trees
+	flann::Index<flann::L2<double> > index(datasetFlaNN, flann::KDTreeIndexParams(4));
+	index.buildIndex();
+	cout << "buildIndex successful" << endl;
+
+	return index;
+}
+
+
+void getClosestPoints(flann::Index<flann::L2<double> > index, Eigen::MatrixXd queries, 
+		flann::Matrix<int> indices, flann::Matrix<double> dists, int nn = 3) {
+	// assert(dataset.cols() == queries.cols());
+
+	flann::Matrix<double> queriesFlaNN;
+	queriesFlaNN = convertEigen2Flann(queries);
+
+	cout << "queriesFlaNN: \t" << queriesFlaNN.rows << ", " << queriesFlaNN.cols << endl;
+	cout << "convertEigen2Flann successful" << endl;
+
+	// int nn = 3;
+	// flann::Matrix<int> indices(new int[queriesFlaNN.rows*nn], queriesFlaNN.rows, nn);
+	// flann::Matrix<double> dists(new double[queriesFlaNN.rows*nn], queriesFlaNN.rows, nn);
+
+	indices = flann::Matrix<int>(new int[queriesFlaNN.rows*nn], queriesFlaNN.rows, nn);
+	dists = flann::Matrix<double>(new double[queriesFlaNN.rows*nn], queriesFlaNN.rows, nn);
+	cout << "creation of indices and dists successful" << endl;
+
+	// do a knn search, using 128 checks
+	index.knnSearch(queriesFlaNN, indices, dists, nn, flann::SearchParams(128));
+	cout << "knnSearch successful" << endl;
+	
+	cout << "indices: \t" << indices.rows << ", " << indices.cols << endl;
+	cout << "dists: \t" << dists.rows << ", " << dists.cols << endl;
+
+	flann::save_to_file(indices,"resultMine.hdf5","result");
+	cout << "save_to_file successful" << endl;
+
+}
+
+void getClosestPoints1(Eigen::MatrixXd dataset, Eigen::MatrixXd queries) {
+	// assert(dataset.cols() == queries.cols());
+
+	flann::Matrix<double> queriesFlaNN;
+	queriesFlaNN = convertEigen2Flann(queries);
+
+	cout << "queriesFlaNN: \t" << queriesFlaNN.rows << ", " << queriesFlaNN.cols << endl;
+	cout << "convertEigen2Flann successful" << endl;
+
+	int nn = 3;
+	flann::Matrix<int> indices(new int[queriesFlaNN.rows*nn], queriesFlaNN.rows, nn);
+	flann::Matrix<double> dists(new double[queriesFlaNN.rows*nn], queriesFlaNN.rows, nn);
+	cout << "creation of indices and dists successful" << endl;
+
+	// construct an randomized kd-tree index using 4 kd-trees
+	flann::Index<flann::L2<double> > index = buildFlannIndex(dataset);
+
+	// do a knn search, using 128 checks
+	index.knnSearch(queriesFlaNN, indices, dists, nn, flann::SearchParams(128));
+	cout << "knnSearch successful" << endl;
+
+	cout << "indices: \t" << indices.rows << ", " << indices.cols << endl;
+	cout << "dists: \t" << dists.rows << ", " << dists.cols << endl;
+
+	flann::save_to_file(indices,"resultMine.hdf5","result");
+	cout << "save_to_file successful" << endl;
+
+}
+
+
+void getClosestPoints0(Eigen::MatrixXd dataset, Eigen::MatrixXd queries) {
 	// assert(dataset.cols() == queries.cols());
 
 	flann::Matrix<double> datasetFlaNN;
@@ -239,7 +321,16 @@ void testFlaNN() {
 	Eigen::MatrixXd datasetMatNew = datasetMat.transpose();
 	Eigen::MatrixXd queriesMatNew = queriesMat.transpose();
 
-	getClosestPoints(datasetMatNew, queriesMatNew);
+	// getClosestPoints1(datasetMatNew, queriesMatNew);
+
+	flann::Index<flann::L2<double> > index = buildFlannIndex(datasetMatNew);
+	// getClosestPoints(index, queriesMatNew);
+
+	flann::Matrix<int> indices;
+	flann::Matrix<double> dists;
+	int nn = 3;
+
+	getClosestPoints(index, queriesMatNew, indices, dists, nn) ;
 
 }
 

@@ -48,9 +48,18 @@ void interpolation(
     std::vector<double> stepSize,
     std::vector<double> dims,
     std::vector<double> mins) ;
+
+
+void interpolationEigen(
+    Eigen::VectorXd query,
+    Eigen::VectorXd stepSize,
+    Eigen::VectorXd dims,
+    Eigen::VectorXd mins);
+
 void testInterp() ;
 void testInterp6D() ;
 void testInterp2D() ;
+void testInterp2DEigen();
 
 
 int main(int argc, char *argv[]) {
@@ -59,7 +68,8 @@ int main(int argc, char *argv[]) {
 	{
 		//testInterp();
 		// testInterp6D();
-		testInterp2D();
+		// testInterp2D();
+		testInterp2DEigen();
 
 		/*
 		Eigen::MatrixXd D;
@@ -362,6 +372,20 @@ void printStdVector(std::vector<double> vect) {
 	cout << vect[vect.size() - 1] << " ]" << endl;
 }
 
+void testInterp2DEigen() {
+	Eigen::VectorXd query(2);
+	query << 0.25, 0.25;
+	Eigen::VectorXd stepSize(2);
+	stepSize << 0.5, 0.5;
+	Eigen::VectorXd dims(2);
+	dims << 9, 9;
+	Eigen::VectorXd mins(2);
+	mins << 0.0, 0.0;
+
+	interpolationEigen( query, stepSize, dims, mins);
+
+}
+
 void testInterp2D() {
 	std::vector<double> query = {0.25, 0.25};
 	std::vector<double> stepSize = {0.5, 0.5};
@@ -369,7 +393,6 @@ void testInterp2D() {
 	std::vector<double> mins = {0.0, 0.0};
 
 	interpolation( query, stepSize, dims, mins);
-
 }
 
 void testInterp() {
@@ -453,6 +476,64 @@ void interpolation(
 		cout << "dists[i]: \t" << dists[i] << endl << endl;
 	}
 }
+
+
+void interpolationEigen(
+    Eigen::VectorXd query,
+    Eigen::VectorXd stepSize,
+    Eigen::VectorXd dims,
+    Eigen::VectorXd mins)
+{
+	int ndims = query.size();
+	int count = 1 << ndims;			// 000000
+	Eigen::VectorXd indices(count);
+	Eigen::VectorXd dists(count);
+
+	// ndivs
+	Eigen::VectorXd ndivs(ndims);
+	for (int i = 0; i < ndims; ++i)
+	{
+		ndivs[i] = (query[i] - mins[i]) / stepSize[i];
+	}
+	cout << "ndivs: \t" << ndivs << endl ;
+
+
+	// 000000
+	Eigen::VectorXd weights(ndims);
+	Eigen::VectorXd index(ndims);
+	for (int i = 0; i < count; ++i)
+	{
+		double weight = 1;
+		// for each dimension get the weight
+		for (int pos = 0; pos < ndims; ++pos)
+		{
+			int after = (i >> pos) & 0x1;				// either zero or one
+			double alpha = ndivs[pos] - int(ndivs[pos]);		// fraction between 0 and 1
+
+			weights[pos] = ((1.0 - after) * (1.0 - alpha) + (after) * (alpha));
+			weight *= weights[pos];
+			index[pos] = int(ndivs[pos]) + after;
+		}
+		cout << i << " of " << count << endl;
+		cout << "index: \t" << index << endl ;
+		cout << "weights: \t" << weights << endl;
+
+		// collate index and weight
+		int full_index = index[0];
+		for (int dim = 1; dim <= ndims - 1; ++dim)
+		{
+			full_index += (full_index * dims[dim]) + index[dim];
+			// const auto ind = index_x + nx * (index_y + ny * index_z);
+		}
+
+		indices[i] = full_index;
+		dists[i] = weight;
+
+		cout << "indices[i]: \t" << indices[i] << endl;
+		cout << "dists[i]: \t" << dists[i] << endl << endl;
+	}
+}
+
 
 Eigen::MatrixXd normalize_data(const Eigen::MatrixXd M, std::vector<double> stepSize)
 {

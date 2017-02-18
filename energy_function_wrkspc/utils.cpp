@@ -1,6 +1,8 @@
 
 // g++ utils.cpp -I/usr/local/ -L/usr/local/lib -lhdf5 -o reach_output
 // g++ utils.cpp -I /usr/include/hdf5/serial/ -lhdf5_serial -o reach_output
+// g++  -std=c++11 utils.cpp -I /usr/include/hdf5/serial/ -lhdf5_serial -o test_interp
+
 
 // /usr/include/eigen3/Eigen
 
@@ -36,11 +38,25 @@ flann::Matrix<ValueType> convertEigen2Flann(
 void getClosestPoints(Eigen::MatrixXd dataset, Eigen::MatrixXd queries);
 void testFlaNN();
 
+void interpolation(
+    std::vector<double> query,
+    std::vector<double> stepSize,
+    std::vector<double> dims,
+    std::vector<double> mins) ;
+void testInterp() ;
+void testInterp6D() ;
+void testInterp2D() ;
+
 
 int main(int argc, char *argv[]) {
 	cout << "Hello World!" << endl;
 
 	{
+		//testInterp();
+		// testInterp6D();
+		testInterp2D();
+
+		/*
 		Eigen::MatrixXd D;
 		std::string filename = argc > 1 ? argv[1] : "../scripts/small_data.csv";
 		load_file_as_eigen_matrix (filename, D);
@@ -63,6 +79,7 @@ int main(int argc, char *argv[]) {
 
 		// test eigen nearest neighbours
 		testFlaNN() ;
+		*/
 
 	}
 	return 0;
@@ -207,8 +224,8 @@ void getClosestPoints(Eigen::MatrixXd dataset, Eigen::MatrixXd queries) {
 	cout << "convertEigen2Flann successful" << endl;
 
 	int nn = 3;
-	flann::Matrix<int> indices(new int[queriesFlaNN.rows*nn], queriesFlaNN.rows, nn);
-	flann::Matrix<double> dists(new double[queriesFlaNN.rows*nn], queriesFlaNN.rows, nn);
+	flann::Matrix<int> indices(new int[queriesFlaNN.rows * nn], queriesFlaNN.rows, nn);
+	flann::Matrix<double> dists(new double[queriesFlaNN.rows * nn], queriesFlaNN.rows, nn);
 	cout << "creation of indices and dists successful" << endl;
 
 	// construct an randomized kd-tree index using 4 kd-trees
@@ -220,7 +237,7 @@ void getClosestPoints(Eigen::MatrixXd dataset, Eigen::MatrixXd queries) {
 	index.knnSearch(queriesFlaNN, indices, dists, nn, flann::SearchParams(128));
 	cout << "knnSearch successful" << endl;
 
-	flann::save_to_file(indices,"resultMine.hdf5","result");
+	flann::save_to_file(indices, "resultMine.hdf5", "result");
 	cout << "save_to_file successful" << endl;
 
 }
@@ -243,18 +260,59 @@ void testFlaNN() {
 
 }
 
+
+void printStdVector(std::vector<double> vect) {
+	cout << "[ " ;
+	for (int i = 0; i < vect.size() - 1; ++i)
+	{
+		cout << vect[i] << ", ";
+	}
+	cout << vect[vect.size() - 1] << " ]" << endl;
+}
+
+void testInterp2D() {
+	std::vector<double> query = {0.25, 0.25};
+	std::vector<double> stepSize = {0.5, 0.5};
+	std::vector<double> dims = {9, 9};
+	std::vector<double> mins = {0.0, 0.0};
+
+	interpolation( query, stepSize, dims, mins);
+
+}
+
+void testInterp() {
+	std::vector<double> query = {0.5, 0.5, 0.5};
+	std::vector<double> stepSize = {1.0, 1.0, 1.0};
+	std::vector<double> dims = {4, 4, 4};
+	std::vector<double> mins = {0.0, 0.0, 0.0};
+
+	interpolation( query, stepSize, dims, mins);
+
+}
+
+void testInterp6D() {
+	std::vector<double> query = {0.5, 0.5, 0.5, 0.5, 0.5, 0.5};
+	std::vector<double> stepSize = {1.0, 1.0, 1.0, 1.0, 1.0, 1.0};
+	std::vector<double> dims = {4, 4, 4, 4, 4, 4};
+	std::vector<double> mins = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+
+	interpolation( query, stepSize, dims, mins);
+
+}
+
 // mins: lowest corner
 // dims: number of divisions in each dimensions
 // stepSize: size of each division
 void interpolation(
-	std::vector<double> query, 
-	std::vector<double> stepSize, 
-	std::vector<double> dims, 
-	std::vector<double> mins) 
+    std::vector<double> query,
+    std::vector<double> stepSize,
+    std::vector<double> dims,
+    std::vector<double> mins)
 {
 	int ndims = query.size();
-	std::vector<double> indices(ndims);
-	std::vector<double> dists(ndims);
+	int count = 1 << ndims;			// 000000
+	std::vector<double> indices(count);
+	std::vector<double> dists(count);
 
 	// ndivs
 	std::vector<double> ndivs(ndims);
@@ -262,38 +320,49 @@ void interpolation(
 	{
 		ndivs[i] = (query[i] - mins[i]) / stepSize[i];
 	}
+	cout << "ndivs: \t" ;
+	printStdVector(ndivs);
+
 
 	// 000000
 	std::vector<double> weights(ndims);
 	std::vector<double> index(ndims);
-	int count = 1 << ndims;
 	for (int i = 0; i < count; ++i)
 	{
-		/* code */
 		double weight = 1;
+		// for each dimension get the weight
 		for (int pos = 0; pos < ndims; ++pos)
 		{
-			int before = (count >> pos) & 0x1;
-    		double alpha = ndivs[i] - int(ndivs[i]);
+			int after = (i >> pos) & 0x1;				// either zero or one
+			double alpha = ndivs[pos] - int(ndivs[pos]);		// fraction between 0 and 1
 
-			weights[pos] = ((1.0 - before) * (1.0 - alpha) + (before) * (alpha));
+			weights[pos] = ((1.0 - after) * (1.0 - alpha) + (after) * (alpha));
 			weight *= weights[pos];
-			index[pos] = int(ndivs[i]) + before;
+			index[pos] = int(ndivs[pos]) + after;
 		}
-	// collate index and weight
-		int full_index = index[ndims-1];
-		for (int dim = ndims-2; dim >= 0; --dim)
+		cout << i << " of " << count << endl;
+		cout << "index: \t" ;
+		printStdVector(index);
+		cout << "weights: \t" ;
+		printStdVector(weights);
+
+		// collate index and weight
+		int full_index = index[0];
+		for (int dim = 1; dim <= ndims - 1; ++dim)
 		{
 			full_index += (full_index * dims[dim]) + index[dim];
-        // const auto ind = index_x + nx * (index_y + ny * index_z);
+			// const auto ind = index_x + nx * (index_y + ny * index_z);
 		}
+
 		indices[i] = full_index;
 		dists[i] = weight;
 
+		cout << "indices[i]: \t" << indices[i] << endl;
+		cout << "dists[i]: \t" << dists[i] << endl << endl;
 	}
 }
 
-Eigen::MatrixXd normalize_data(const Eigen::MatrixXd M, std::vector<double> stepSize) 
+Eigen::MatrixXd normalize_data(const Eigen::MatrixXd M, std::vector<double> stepSize)
 {
 	Eigen::MatrixXd M_normalized(M.rows(), M.cols());
 	for (int i = 0; i < M.cols(); ++i)
@@ -304,7 +373,7 @@ Eigen::MatrixXd normalize_data(const Eigen::MatrixXd M, std::vector<double> step
 }
 
 void interpolation_with_nearest_neighbors(Eigen::MatrixXd dataset, Eigen::MatrixXd queries)
-{ 
+{
 	// find the 2^ndims nearest neighbors
 	// weight their values by the dist returned by NN
 

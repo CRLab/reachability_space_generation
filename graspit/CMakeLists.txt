@@ -187,7 +187,8 @@ set (GRASPIT_EGPLANNER_ENERGY_HEADERS
     ${GSRC}/include/EGPlanner/energy/dynamicAutoGraspEnergy.h
     ${GSRC}/include/EGPlanner/energy/guidedAutoGraspEnergy.h 
     ${GSRC}/include/EGPlanner/energy/guidedPotentialQualityEnergy.h 
-    ${GSRC}/include/EGPlanner/energy/GuidedReachablePotentialQualityEnergy.h 
+    ${GSRC}/include/EGPlanner/energy/guidedReachablePotentialQualityEnergy.h 
+    ${GSRC}/include/EGPlanner/energy/reachableEnergyUtils.h
     ${GSRC}/include/EGPlanner/energy/potentialQualityEnergy.h
     ${GSRC}/include/EGPlanner/energy/strictAutoGraspEnergy.h
 )
@@ -417,7 +418,8 @@ set (GRASPIT_CORE_SOURCES
     ${GSRC}/src/EGPlanner/energy/dynamicAutoGraspEnergy.cpp
     ${GSRC}/src/EGPlanner/energy/guidedAutoGraspEnergy.cpp 
     ${GSRC}/src/EGPlanner/energy/guidedPotentialQualityEnergy.cpp 
-    ${GSRC}/src/EGPlanner/energy/GuidedReachablePotentialQualityEnergy.cpp 
+    ${GSRC}/src/EGPlanner/energy/guidedReachablePotentialQualityEnergy.cpp 
+    ${GSRC}/src/EGPlanner/energy/reachableEnergyUtils.cpp
     ${GSRC}/src/EGPlanner/energy/potentialQualityEnergy.cpp 
     ${GSRC}/src/EGPlanner/energy/strictAutoGraspEnergy.cpp 
     ${GSRC}/src/bodySensor.cpp

@@ -7,6 +7,50 @@
 #include "contact/virtualContact.h"
 
 
+
+
+// TODO: create a constructor that will
+// load reahable map from file
+// two arrays: space -> value
+// build flann index from space array
+GuidedReachablePotentialQualityEnergy::GuidedReachablePotentialQualityEnergy()
+{
+    Eigen::MatrixXd D;
+    std::string filename = "/home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/scripts/small_data.csv";
+    cout << "set the reachable energy file name!" << endl;
+    assert(false);
+    load_file_as_eigen_matrix (filename, D);
+
+    // separate data into space and target value
+    Eigen::MatrixXd D_temp = D.rightCols(7);
+    Eigen::MatrixXd poseMatrix = D_temp.leftCols(6);
+    Eigen::VectorXd isReachableMatrix = D_temp.rightCols(1);
+    assert(poseMatrix.rows() == isReachableMatrix.rows());
+
+    // load step size from file
+    Eigen::MatrixXd S;
+    std::string filenameScripts = "/home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/scripts/stepSize.csv";
+    cout << "set the reachable space step size file name!" << endl;
+    assert(false);
+    load_file_as_eigen_matrix (filenameScripts, S);
+    cout << "reachable space step size file name!" << endl << S << endl;
+
+    // normalize data
+    stepSize.resize(S.cols());
+    stepSize = S.row(0);
+    std::cout << "set the stepSize values" << std::endl;
+    assert(false);
+    poseMatrix = normalize_data(poseMatrix, stepSize);
+
+    // build flann Index
+    Eigen::MatrixXd poseMatrixTranspose = poseMatrix.transpose();
+    flann::Index<flann::L2<double> > poseFlannIndexObject = buildFlannIndex(poseMatrixTranspose);
+    poseFlannIndex = &poseFlannIndexObject;
+
+    // target values
+    isReachableFlagMatrix = isReachableMatrix;
+}
+
 double
 GuidedReachablePotentialQualityEnergy::energy() const
 {
@@ -19,23 +63,50 @@ GuidedReachablePotentialQualityEnergy::energy() const
     return contactEnergy();
   }
 
-  return potentialEnergy;
+  return potentialEnergy + reachableQualityEnergy();
+//  return potentialEnergy;
 }
-
-// TODO: create a constructor that will
-// load reahable map from file
-// two arrays: space -> value
-// build flann index from space array
 
 
 double GuidedReachablePotentialQualityEnergy::reachableQualityEnergy() const
 {
   // get hand transform in object frame
+    transf transHO = mObject->getTran().inverse() % mHand->getTran();
+    Eigen::MatrixXd queryPose(4,4);
+    queryPose.block(0, 0, 3, 3) = transHO.affine();
+    queryPose.block(0, 3, 3, 1) = transHO.translation();
+    queryPose(3, 3) = 1;
+
+    // load object-base transform
+    Eigen::MatrixXd objectBaseTrans;
+    std::string filename_objBaseTrans = "/home/rbtying/wkspc_Spring_2017/grasp_reachability_planning/scripts/small_data.csv";
+    cout << "set the reachable energy file name!" << endl;
+    assert(false);
+    load_file_as_eigen_matrix (filename_objBaseTrans, objectBaseTrans);
+    std::cout << "load the object in Base trasform" << std::endl;
+    assert(false);
+    queryPose = objectBaseTrans * queryPose;
+
+
+  // get xyzRPY and convert to eigen
+    Eigen::VectorXd xyzRPY=  trans2xyzRPY (queryPose);
+    Eigen::MatrixXd queryPoint(1,6);
+    queryPoint.row(0) = xyzRPY;
+    //normalize query
+    queryPoint = normalize_data(queryPoint, stepSize);
+    Eigen::MatrixXd queryMatNew = queryPoint.transpose();
+    // transpose queryPoint; flann typically transpose Eigen Matrix (Row)
 
   // query data structure for reachability info
+    flann::Matrix<int> indices;
+    flann::Matrix<double> dists;
+    int nn = 10;
+    getClosestPoints(*poseFlannIndex, queryMatNew, indices, dists, nn) ;
 
-  // return reachability value
-  return 0;
+//    // compute and return reachability energy
+//    return interpolation_nearest_neighbors(isReachableFlagMatrix, indices, dists);
+
+  return 1000.0;
 }
 
 

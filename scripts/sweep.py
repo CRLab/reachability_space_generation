@@ -61,6 +61,26 @@ def load_params_ros():
     return params
 
 
+def get_ik(target, group = 'arm', end_effector_link='gripper_link'):
+    """
+    :param target:  a PoseStamped give the desired position of the endeffector.
+    """
+    
+    service_request = PositionIKRequest()
+    service_request.group_name = group
+    service_request.ik_link_name = end_effector_link
+    service_request.pose_stamped = target
+    service_request.timeout.secs= 0.005
+    service_request.avoid_collisions = False
+
+    try:
+        resp = compute_ik(ik_request = service_request)
+        return resp
+    except rospy.ServiceException, e:
+        print "Service call failed: %s"%e
+
+
+
 if __name__ == '__main__':
 
 	# # load the parameters from the configs file
@@ -105,13 +125,18 @@ if __name__ == '__main__':
                         for yaw in yaws:
                             f = PyKDL.Frame(PyKDL.Rotation.RPY(roll, pitch, yaw), PyKDL.Vector(x,y,z))
                             pose.pose = tf_conversions.posemath.toMsg(f)
-                            # m.set_pose_target(pose)
-                            m.set_pose_target(pose, end_effector_name)
-                            plan = m.plan()
+                            # # m.set_pose_target(pose)
+                            # m.set_pose_target(pose, end_effector_name)
+                            # plan = m.plan()
 
-                            reachable = True
-                            if len(plan.joint_trajectory.points) == 0:
-                                reachable = False
+                            # reachable = True
+                            # if len(plan.joint_trajectory.points) == 0:
+                            #     reachable = False
+
+                            # compute ik for the given pose
+                            result = get_ik(pose, robot_move_group, end_effector_name)
+                            reachable = resp.error_code == 1
+
 
                             fd = open("reachability_data_"+dt.now().strftime("%d_%m_%y_%I_%M%p")+".csv", 'a')
                             data = str(count) + " " + str(x) + " " + str(y) + " " + str(z) + " " + str(roll) + " " + str(pitch) + " " + str(yaw) + " " + str(reachable) +"\n"

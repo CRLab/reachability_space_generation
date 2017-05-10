@@ -56,44 +56,9 @@ def load_params_ros():
     params['planner_time_limit'] = rosparam.get_param('/planner_time_limit')
     params['robot_move_group'] = rosparam.get_param('/robot_move_group')
     params['limits_reference_frame'] = rosparam.get_param('/limits_reference_frame')
+    params['end_effector_name'] = rosparam.get_param('/end_effector_name')
 
     return params
-
-# def load_params(yaml_file="fetch_params.yaml"):
-
-# 	limit_params = load_yaml(limits_file)
-
-# 	params = {}
-
-#     params[xs] = np.arange(limit_params['x_lim']['min'], limit_params['x_lim']['max'], limit_params['x_lim']['step'])
-
-#     params[ys] = np.arange(
-#     	limit_params['y_lim']['min'], 
-#     	limit_params['y_lim']['max'], 
-#     	limit_params['y_lim']['step'])
-#     params[zs] = np.arange(
-#     	limit_params['z_lim']['min'], 
-#     	limit_params['z_lim']['max'], 
-#     	limit_params['z_lim']['step'])
-
-#     params[rolls] = np.arange(
-#     	limit_params['roll_lim']['min'], 
-#     	limit_params['roll_lim']['max'], 
-#     	limit_params['roll_lim']['step'])
-#     params[pitchs] = np.arange(
-#     	limit_params['pitch_lim']['min'], 
-#     	limit_params['pitch_lim']['max'], 
-#     	limit_params['pitch_lim']['step'])
-#     params[yaws] = np.arange(
-#     	limit_params['yaws_lim']['min'], 
-#     	limit_params['yaws_lim']['max'], 
-#     	limit_params['yaws_lim']['step'])
-
-#     params[planner_time_limit] = limit_params['planner_time_limit']
-#     params[robot_move_group] = limit_params['robot_move_group']
-#     params[limits_reference_frame] = limit_params['limits_reference_frame']
-
-#    return params
 
 
 if __name__ == '__main__':
@@ -115,6 +80,7 @@ if __name__ == '__main__':
     planner_time_limit =  params['planner_time_limit']
     robot_move_group =  params['robot_move_group']
     limits_reference_frame =  params['limits_reference_frame']
+    end_effector_name = params['end_effector_name']
 
     num_combinations = len(xs)*len(ys)*len(zs)*len(rolls)*len(pitchs)*len(yaws)
     print "Looking over: " + str(num_combinations) + " combinations with max time(s) per sample:  " + str(planner_time_limit)
@@ -139,7 +105,8 @@ if __name__ == '__main__':
                         for yaw in yaws:
                             f = PyKDL.Frame(PyKDL.Rotation.RPY(roll, pitch, yaw), PyKDL.Vector(x,y,z))
                             pose.pose = tf_conversions.posemath.toMsg(f)
-                            m.set_pose_target(pose)
+                            # m.set_pose_target(pose)
+                            m.set_pose_target(pose, end_effector_name)
                             plan = m.plan()
 
                             reachable = True
@@ -147,13 +114,14 @@ if __name__ == '__main__':
                                 reachable = False
 
                             fd = open("reachability_data_"+dt.now().strftime("%d_%m_%y_%I_%M%p")+".csv", 'a')
-                            data = str(count) + ", " + str(x) + ", " + str(y) + ", " + str(z) + ", " + str(roll) + ", " + str(pitch) + ", " + str(yaw) + ", " + str(reachable) +"\n"
+                            data = str(count) + " " + str(x) + " " + str(y) + " " + str(z) + " " + str(roll) + " " + str(pitch) + " " + str(yaw) + " " + str(reachable) +"\n"
                             fd.write(data)
                             fd.close()
 
                             count += 1
 
-                            print "status: " + str(count) + "/" + str(num_combinations)
+                            if (count%10 == 0):
+                                print "status: " + str(count) + "/" + str(num_combinations)
 
                             # if count > 5:
                             #     import IPython

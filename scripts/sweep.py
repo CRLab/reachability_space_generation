@@ -65,28 +65,63 @@ def load_params_ros():
 
     return params
 
+class RobotReachableSpaceIK(object):
+    """docstring for RobotReachableSpaceIK"""
+    def __init__(self, group, planner_time_limit=0.005):
+        self.group = group
+        self.planner_time_limit = planner_time_limit
 
-rospy.wait_for_service('compute_ik')
-compute_ik = rospy.ServiceProxy('compute_ik', GetPositionIK)
+        rospy.wait_for_service('compute_ik')
+        self.compute_ik = rospy.ServiceProxy('compute_ik', GetPositionIK)
 
-def get_ik(target, group = 'arm', end_effector_link='gripper_link'):
-    """
-    :param target:  a PoseStamped give the desired position of the endeffector.
-    """
-    
-    service_request = PositionIKRequest()
-    service_request.group_name = group
-    service_request.ik_link_name = end_effector_link
-    service_request.pose_stamped = target
-    service_request.timeout.secs= 0.005
-    service_request.avoid_collisions = False
+    def get_ik(self, target_pose, end_effector_link='gripper_link'):
+        """
+        :param target_pose:  a PoseStamped give the desired position of the endeffector.
+        """
+        
+        service_request = PositionIKRequest()
+        service_request.group_name = self.group
+        service_request.ik_link_name = end_effector_link
+        service_request.pose_stamped = target_pose
+        service_request.timeout.secs= self.planner_time_limit
+        service_request.avoid_collisions = False
 
-    try:
-        resp = compute_ik(ik_request = service_request)
-        return resp
-    except rospy.ServiceException, e:
-        print "Service call failed: %s"%e
+        try:
+            resp = self.compute_ik(ik_request = service_request)
+            return resp
+        except rospy.ServiceException, e:
+            print "Service call failed: %s"%e
 
+    def query_pose(self, target_pose, end_effector_name='gripper_link'):
+
+        ik_result = self.get_ik(target_pose, end_effector_name)        
+        return ik_result.error_code == 1
+
+class RobotReachableSpaceMoveitFullPlan(object):
+    """docstring for RobotReachableSpaceMoveitFullPlan"""
+
+    def __init__(self, group, planner_time_limit=0.5):
+        self.robot = RobotCommander()
+        rospy.sleep(1)
+        self.m = self.robot.get_group(group)
+        self.m.set_planning_time(planner_time_limit)
+
+    def get_plan(self, target_pose, end_effector_name='gripper_link'):
+        """
+        :param target_pose:  a PoseStamped give the desired position of the endeffector.
+        """
+        # # m.set_pose_target(pose)
+        self.m.set_pose_target(target_pose, end_effector_name)
+        plan = self.m.plan()
+        return plan
+
+    def query_pose(self, target_pose, end_effector_name='gripper_link'):
+
+        plan = self.get_plan(target_pose, end_effector_name)        
+        return len(plan.joint_trajectory.points) > 0
+
+
+USE_IK_ONLY = True
 
 
 if __name__ == '__main__':
@@ -117,12 +152,7 @@ if __name__ == '__main__':
     roscpp_initialize(sys.argv)
     rospy.init_node('moveit_py_demo', anonymous=True)
 
-    robot = RobotCommander()
-    rospy.sleep(1)
-
     count = 0
-    m = robot.get_group(robot_move_group)
-    m.set_planning_time(planner_time_limit)
 
     filename = rospkg.RosPack().get_path('grasp_reachability_planning')
     filename += '/data/reachability_data_'
@@ -130,8 +160,14 @@ if __name__ == '__main__':
     filename += datetime.datetime.now().strftime(fmt) + '.csv'
     fd = open(filename, 'w')
 
-    # pose = m.get_current_pose()
+    if USE_IK_ONLY:
+        robot_reach_space = RobotReachableSpaceIK(group=robot_move_group, planner_time_limit=planner_time_limit)
+    else:
+        robot_reach_space = RobotReachableSpaceMoveitFullPlan(group=robot_move_group, planner_time_limit=planner_time_limit)
+
     pose = PoseStamped()
+    pose.header.frame_id = limits_reference_frame
+
     for x in xs:
         for y in ys:
             for z in zs:
@@ -139,19 +175,19 @@ if __name__ == '__main__':
                     for pitch in pitchs:
                         for yaw in yaws:
                             f = PyKDL.Frame(PyKDL.Rotation.RPY(roll, pitch, yaw), PyKDL.Vector(x,y,z))
-                            pose.pose = tf_conversions.posemath.toMsg(f)
-                            # # m.set_pose_target(pose)
-                            # m.set_pose_target(pose, end_effector_name)
-                            # plan = m.plan()
+                            pose.pose = tf_conversions.posemath.toMsg(f)                        
 
-                            # reachable = True
-                            # if len(plan.joint_trajectory.points) == 0:
-                            #     reachable = False
+                            # # these lines are not needed except for special data collection 
+                            # if USE_IK_ONLY:
+                            #     # compute ik for the given pose
+                            #     ik_result = robot_reach_space.get_ik(pose, robot_move_group, end_effector_name)
+                            # if not USE_IK_ONLY:
+                            #     # compute full moveit plan
+                            #     plan = robot_reach_space.get_plan(pose, end_effector_name)
 
-                            # compute ik for the given pose
-                            result = get_ik(pose, robot_move_group, end_effector_name)
-                            reachable = result.error_code == 1
-                            
+                            reachable = robot_reach_space.query_pose(pose, end_effector_name)
+
+
                             data = str(count) + " " + str(x) + " " + str(y) + " " + str(z) + " " + str(roll) + " " + str(pitch) + " " + str(yaw) + " " + str(reachable) +"\n"
                             fd.write(data)
 
@@ -165,7 +201,6 @@ if __name__ == '__main__':
                             #     IPython.embed()
                             #     assert(False)
 
-
     fd.close()
 
     roscpp_shutdown()
@@ -174,5 +209,4 @@ if __name__ == '__main__':
     # position, quaternion = listener.lookupTransform("/base_link", "/arm", rospy.Time(0))
     # rosrun tf tf_echo /base_link /gripper_link
 
-    # TODO: fill configs files
-    # write up launch file
+

@@ -30,5 +30,6 @@ yaws_lim:
   step: 1
 
 planner_time_limit: 0.5
-limits_frame: 'world'
-robot_move_group: "right_arm"
+limits_reference_frame: 'base_link'
+robot_move_group: 'right_arm'
+end_effector_name: r_wrist_roll_link

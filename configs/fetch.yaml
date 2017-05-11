@@ -31,5 +31,5 @@ yaws_lim:
 
 planner_time_limit: 0.5
 limits_reference_frame: 'base_link'
-robot_move_group: "arm"
-end_effector_name: gripper
+robot_move_group: 'arm'
+end_effector_name: gripper_link

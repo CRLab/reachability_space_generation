@@ -32,3 +32,4 @@ yaws_lim:
 planner_time_limit: 0.5
 limits_frame: 'world'
 robot_move_group: "manipulator"
+end_effector_name: gripper_link

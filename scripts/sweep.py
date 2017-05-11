@@ -9,11 +9,16 @@ import math
 import PyKDL
 import tf_conversions
 import rospy
-import rosparam
+import rosparam, rospkg
 
-from datetime import datetime as dt
+import datetime
 
 import yaml
+
+from geometry_msgs.msg import Transform, PoseStamped
+from moveit_msgs.srv import GetPositionIK
+from moveit_msgs.msg import PositionIKRequest
+
 
 def load_yaml(yaml_file="fetch_params.yaml"):
 	with open(yaml_file, 'r') as stream:
@@ -60,6 +65,9 @@ def load_params_ros():
 
     return params
 
+
+rospy.wait_for_service('compute_ik')
+compute_ik = rospy.ServiceProxy('compute_ik', GetPositionIK)
 
 def get_ik(target, group = 'arm', end_effector_link='gripper_link'):
     """
@@ -116,7 +124,14 @@ if __name__ == '__main__':
     m = robot.get_group(robot_move_group)
     m.set_planning_time(planner_time_limit)
 
-    pose = m.get_current_pose()
+    filename = rospkg.RosPack().get_path('grasp_reachability_planning')
+    filename += '/data/reachability_data_'
+    fmt = '%Y-%m-%d-%H-%M-%S'
+    filename += datetime.datetime.now().strftime(fmt) + '.csv'
+    fd = open(filename, 'w')
+
+    # pose = m.get_current_pose()
+    pose = PoseStamped()
     for x in xs:
         for y in ys:
             for z in zs:
@@ -135,13 +150,10 @@ if __name__ == '__main__':
 
                             # compute ik for the given pose
                             result = get_ik(pose, robot_move_group, end_effector_name)
-                            reachable = resp.error_code == 1
-
-
-                            fd = open("reachability_data_"+dt.now().strftime("%d_%m_%y_%I_%M%p")+".csv", 'a')
+                            reachable = result.error_code == 1
+                            
                             data = str(count) + " " + str(x) + " " + str(y) + " " + str(z) + " " + str(roll) + " " + str(pitch) + " " + str(yaw) + " " + str(reachable) +"\n"
                             fd.write(data)
-                            fd.close()
 
                             count += 1
 
@@ -154,6 +166,7 @@ if __name__ == '__main__':
                             #     assert(False)
 
 
+    fd.close()
 
     roscpp_shutdown()
     #np.arange(0,len(xs)+len(ys)+len(zs)+len(rs)+len(ps)+len(yaws)),

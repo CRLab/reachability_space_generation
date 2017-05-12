@@ -33,3 +33,4 @@ planner_time_limit: 0.5
 limits_reference_frame: 'world'
 robot_move_group: "manipulator"
 end_effector_name: gripper_link
+use_ik_only: True

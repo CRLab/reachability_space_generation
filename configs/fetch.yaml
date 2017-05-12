@@ -29,7 +29,8 @@ yaws_lim:
   max: math.pi*2
   step: 1.0
 
-planner_time_limit: 0.5
+planner_time_limit: 0.005
 limits_reference_frame: 'base_link'
 robot_move_group: 'arm'
 end_effector_name: gripper_link
+use_ik_only: True

@@ -33,3 +33,4 @@ planner_time_limit: 0.5
 limits_reference_frame: 'base_link'
 robot_move_group: 'left_arm'
 end_effector_name: l_wrist_roll_link
+use_ik_only: True

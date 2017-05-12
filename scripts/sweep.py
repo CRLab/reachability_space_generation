@@ -65,14 +65,32 @@ def load_params_ros():
 
     return params
 
-class RobotReachableSpaceIK(object):
+
+class RobotReachableSpace(object):
     """docstring for RobotReachableSpaceIK"""
-    def __init__(self, group, planner_time_limit=0.005):
+
+    def __init__(self, group, planner_time_limit=0.5):
+        # instance variables to compute ik
         self.group = group
         self.planner_time_limit = planner_time_limit
 
         rospy.wait_for_service('compute_ik')
         self.compute_ik = rospy.ServiceProxy('compute_ik', GetPositionIK)
+
+        # instance variables to compute moveit plan
+        self.robot = RobotCommander()
+        rospy.sleep(1)
+        self.m = self.robot.get_group(group)
+        self.m.set_planning_time(planner_time_limit)
+
+    def get_plan(self, target_pose, end_effector_name='gripper_link'):
+        """
+        :param target_pose:  a PoseStamped give the desired position of the endeffector.
+        """
+        # # m.set_pose_target(pose)
+        self.m.set_pose_target(target_pose, end_effector_name)
+        plan = self.m.plan()
+        return plan
 
     def get_ik(self, target_pose, end_effector_link='gripper_link'):
         """
@@ -92,36 +110,17 @@ class RobotReachableSpaceIK(object):
         except rospy.ServiceException, e:
             print "Service call failed: %s"%e
 
-    def query_pose(self, target_pose, end_effector_name='gripper_link'):
+    def query_pose(self, target_pose, end_effector_name='gripper_link', use_ik_only=True):
 
-        ik_result = self.get_ik(target_pose, end_effector_name)        
-        return ik_result.error_code == 1
-
-class RobotReachableSpaceMoveitFullPlan(object):
-    """docstring for RobotReachableSpaceMoveitFullPlan"""
-
-    def __init__(self, group, planner_time_limit=0.5):
-        self.robot = RobotCommander()
-        rospy.sleep(1)
-        self.m = self.robot.get_group(group)
-        self.m.set_planning_time(planner_time_limit)
-
-    def get_plan(self, target_pose, end_effector_name='gripper_link'):
-        """
-        :param target_pose:  a PoseStamped give the desired position of the endeffector.
-        """
-        # # m.set_pose_target(pose)
-        self.m.set_pose_target(target_pose, end_effector_name)
-        plan = self.m.plan()
-        return plan
-
-    def query_pose(self, target_pose, end_effector_name='gripper_link'):
-
-        plan = self.get_plan(target_pose, end_effector_name)        
-        return len(plan.joint_trajectory.points) > 0
+        if use_ik_only:
+            ik_result = self.get_ik(target_pose, end_effector_name)        
+            return ik_result.error_code == 1
+        else:
+            plan = self.get_plan(target_pose, end_effector_name)        
+            return len(plan.joint_trajectory.points) > 0
 
 
-USE_IK_ONLY = True
+USE_IK_ONLY = rosparam.get_param('/use_ik_only')
 
 
 if __name__ == '__main__':
@@ -160,10 +159,7 @@ if __name__ == '__main__':
     filename += datetime.datetime.now().strftime(fmt) + '.csv'
     fd = open(filename, 'w')
 
-    if USE_IK_ONLY:
-        robot_reach_space = RobotReachableSpaceIK(group=robot_move_group, planner_time_limit=planner_time_limit)
-    else:
-        robot_reach_space = RobotReachableSpaceMoveitFullPlan(group=robot_move_group, planner_time_limit=planner_time_limit)
+    robot_reach_space = RobotReachableSpace(group=robot_move_group, planner_time_limit=planner_time_limit)
 
     pose = PoseStamped()
     pose.header.frame_id = limits_reference_frame
@@ -185,7 +181,7 @@ if __name__ == '__main__':
                             #     # compute full moveit plan
                             #     plan = robot_reach_space.get_plan(pose, end_effector_name)
 
-                            reachable = robot_reach_space.query_pose(pose, end_effector_name)
+                            reachable = robot_reach_space.query_pose(pose, end_effector_name, USE_IK_ONLY)
 
 
                             data = str(count) + " " + str(x) + " " + str(y) + " " + str(z) + " " + str(roll) + " " + str(pitch) + " " + str(yaw) + " " + str(reachable) +"\n"

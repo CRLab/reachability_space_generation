@@ -11,6 +11,7 @@ import tf_conversions
 import rospy
 import rosparam, rospkg
 import os
+from tqdm import tqdm
 
 import datetime
 
@@ -157,12 +158,12 @@ if __name__ == '__main__':
     pose = PoseStamped()
     pose.header.frame_id = limits_reference_frame
 
-    for x in xs:
-        for y in ys:
-            for z in zs:
-                for roll in rolls:
-                    for pitch in pitchs:
-                        for yaw in yaws:
+    for x in tqdm(xs, desc='x'):
+        for y in tqdm(ys, desc='y'):
+            for z in tqdm(zs, desc='z'):
+                for roll in tqdm(rolls, desc='roll'):
+                    for pitch in tqdm(pitchs, desc='pitch'):
+                        for yaw in tqdm(yaws, desc='yaws'):
                             f = PyKDL.Frame(PyKDL.Rotation.RPY(roll, pitch, yaw), PyKDL.Vector(x,y,z))
                             pose.pose = tf_conversions.posemath.toMsg(f)                        
 
@@ -182,8 +183,8 @@ if __name__ == '__main__':
 
                             count += 1
 
-                            if (count%10 == 0):
-                                print "status: " + str(count) + "/" + str(num_combinations)
+                            # if (count%10 == 0):
+                            #     print "status: " + str(count) + "/" + str(num_combinations)
 
                             # if count > 5:
                             #     import IPython

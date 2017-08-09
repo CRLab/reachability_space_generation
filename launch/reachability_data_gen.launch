@@ -3,7 +3,7 @@
 
 	<!-- Start MoveIt -->
 	<include file="$(find fetch_moveit_config)/launch/move_group.launch" >
-		<!-- <arg name="info" value="true"/> -->
+		<arg name="info" value="true"/>
 	</include>
 
 	<rosparam command="load" file="$(find reachability_space_generation)/configs/$(arg robot).yaml"/>

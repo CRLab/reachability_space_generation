@@ -10,6 +10,7 @@ import PyKDL
 import tf_conversions
 import rospy
 import rosparam, rospkg
+import os
 
 import datetime
 
@@ -19,14 +20,6 @@ from geometry_msgs.msg import Transform, PoseStamped
 from moveit_msgs.srv import GetPositionIK
 from moveit_msgs.msg import PositionIKRequest
 
-
-def load_yaml(yaml_file="fetch_params.yaml"):
-	with open(yaml_file, 'r') as stream:
-		try:
-			content = yaml.load(stream)
-		except yaml.YAMLError as exc:
-			print(exc)
-	return content
 
 def load_params_ros():
     # this function loads the relevant parameters from the params server
@@ -46,17 +39,17 @@ def load_params_ros():
         rosparam.get_param('/z_lim/step'))
 
     params['rolls'] = np.arange(
-        rosparam.get_param('/roll_lim/min'),
+        eval(rosparam.get_param('/roll_lim/min')),
         eval(rosparam.get_param('/roll_lim/max')),
-        rosparam.get_param('/roll_lim/step'))
+        eval(rosparam.get_param('/roll_lim/step')))
     params['pitchs'] = np.arange(
         eval(rosparam.get_param('/pitch_lim/min')),
         eval(rosparam.get_param('/pitch_lim/max')),
-        rosparam.get_param('/pitch_lim/step'))
+        eval(rosparam.get_param('/pitch_lim/step')))
     params['yaws'] = np.arange(
-        rosparam.get_param('/yaws_lim/min'),
+        eval(rosparam.get_param('/yaws_lim/min')),
         eval(rosparam.get_param('/yaws_lim/max')),
-        rosparam.get_param('/yaws_lim/step'))
+        eval(rosparam.get_param('/yaws_lim/step')))
 
     params['planner_time_limit'] = rosparam.get_param('/planner_time_limit')
     params['robot_move_group'] = rosparam.get_param('/robot_move_group')
@@ -120,14 +113,11 @@ class RobotReachableSpace(object):
             return len(plan.joint_trajectory.points) > 0
 
 
-USE_IK_ONLY = rosparam.get_param('/use_ik_only')
 
 
 if __name__ == '__main__':
 
-	# # load the parameters from the configs file
-	# limits_config_file = 'config/fetch_params.yaml'
-	# params = load_params(limits_config_file)
+    USE_IK_ONLY = rosparam.get_param('/use_ik_only')
 
     # load the parameters from ros params server
     params = load_params_ros()
@@ -153,11 +143,14 @@ if __name__ == '__main__':
 
     count = 0
 
-    filename = rospkg.RosPack().get_path('grasp_reachability_planning')
-    filename += '/data/reachability_data_'
-    fmt = '%Y-%m-%d-%H-%M-%S'
-    filename += datetime.datetime.now().strftime(fmt) + '.csv'
-    fd = open(filename, 'w')
+    reach_data_location = rospkg.RosPack().get_path('reachability_space_generation') + '/data/'
+    if not os.path.exists(reach_data_location):
+        os.makedirs(reach_data_location)
+    reach_data_location += '/reachability_data_'
+    # fmt = '%Y-%m-%d-%H-%M-%S'
+    # reach_data_location += datetime.datetime.now().strftime(fmt)
+    reach_data_location += '.csv'
+    fd = open(reach_data_location, 'w')
 
     robot_reach_space = RobotReachableSpace(group=robot_move_group, planner_time_limit=planner_time_limit)
 

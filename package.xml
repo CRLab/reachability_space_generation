@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package>
-  <name>grasp_reachability_planning</name>
+  <name>reachability_space_generation</name>
   <version>0.0.0</version>
-  <description>The grasp_reachability_planning package</description>
+  <description>The reachability_space_generation package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag --> 
   <!-- Example:  -->
@@ -19,7 +19,7 @@
   <!-- Url tags are optional, but mutiple are allowed, one per tag -->
   <!-- Optional attribute type can be: website, bugtracker, or repository -->
   <!-- Example: -->
-  <!-- <url type="website">http://wiki.ros.org/grasp_reachability_planning</url> -->
+  <!-- <url type="website">http://wiki.ros.org/reachability_space_generation</url> -->
 
 
   <!-- Author tags are optional, mutiple are allowed, one per tag -->

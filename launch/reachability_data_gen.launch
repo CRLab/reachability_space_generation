@@ -2,12 +2,12 @@
 	<arg name="robot" />
 
 	<!-- Start MoveIt -->
-	<!-- <include file="$(find fetch_moveit_config)/launch/move_group.launch" >
-		<arg name="info" value="true"/>
-	</include> -->
+	<include file="$(find fetch_moveit_config)/launch/move_group.launch" >
+		<!-- <arg name="info" value="true"/> -->
+	</include>
 
-	<rosparam command="load" file="$(find grasp_reachability_planning)/configs/$(arg robot).yaml"/>
+	<rosparam command="load" file="$(find reachability_space_generation)/configs/$(arg robot).yaml"/>
 
-	<node name="reachability_sweep" pkg="grasp_reachability_planning" type="sweep.py" output="screen"/>
+	<node name="reachability_sweep" pkg="reachability_space_generation" type="sweep.py" output="screen"/>
 
 </launch>

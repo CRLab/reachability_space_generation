@@ -151,47 +151,46 @@ if __name__ == '__main__':
     # fmt = '%Y-%m-%d-%H-%M-%S'
     # reach_data_location += datetime.datetime.now().strftime(fmt)
     reach_data_location += '.csv'
-    fd = open(reach_data_location, 'w')
 
     robot_reach_space = RobotReachableSpace(group=robot_move_group, planner_time_limit=planner_time_limit)
 
     pose = PoseStamped()
     pose.header.frame_id = limits_reference_frame
 
-    for x in tqdm(xs, desc='x'):
-        for y in tqdm(ys, desc='y'):
-            for z in tqdm(zs, desc='z'):
-                for roll in tqdm(rolls, desc='roll'):
-                    for pitch in tqdm(pitchs, desc='pitch'):
-                        for yaw in tqdm(yaws, desc='yaws'):
-                            f = PyKDL.Frame(PyKDL.Rotation.RPY(roll, pitch, yaw), PyKDL.Vector(x,y,z))
-                            pose.pose = tf_conversions.posemath.toMsg(f)
+    with open(reach_data_location, 'w') as fd:
+        for x in tqdm(xs, desc='x'):
+            for y in tqdm(ys, desc='y'):
+                for z in tqdm(zs, desc='z'):
+                    for roll in tqdm(rolls, desc='roll'):
+                        for pitch in tqdm(pitchs, desc='pitch'):
+                            for yaw in tqdm(yaws, desc='yaws'):
+                                f = PyKDL.Frame(PyKDL.Rotation.RPY(roll, pitch, yaw), PyKDL.Vector(x,y,z))
+                                pose.pose = tf_conversions.posemath.toMsg(f)
 
-                            # # these lines are not needed except for special data collection 
-                            # if USE_IK_ONLY:
-                            #     # compute ik for the given pose
-                            #     ik_result = robot_reach_space.get_ik(pose, robot_move_group, end_effector_name)
-                            # if not USE_IK_ONLY:
-                            #     # compute full moveit plan
-                            #     plan = robot_reach_space.get_plan(pose, end_effector_name)
+                                # # these lines are not needed except for special data collection
+                                # if USE_IK_ONLY:
+                                #     # compute ik for the given pose
+                                #     ik_result = robot_reach_space.get_ik(pose, robot_move_group, end_effector_name)
+                                # if not USE_IK_ONLY:
+                                #     # compute full moveit plan
+                                #     plan = robot_reach_space.get_plan(pose, end_effector_name)
 
-                            reachable = int(robot_reach_space.query_pose(pose, end_effector_name, USE_IK_ONLY))
+                                reachable = int(robot_reach_space.query_pose(pose, end_effector_name, USE_IK_ONLY))
 
 
-                            data = str(count) + " " + str(x) + " " + str(y) + " " + str(z) + " " + str(roll) + " " + str(pitch) + " " + str(yaw) + " " + str(reachable) +"\n"
-                            fd.write(data)
+                                data = str(count) + " " + str(x) + " " + str(y) + " " + str(z) + " " + str(roll) + " " + str(pitch) + " " + str(yaw) + " " + str(reachable) +"\n"
+                                fd.write(data)
 
-                            count += 1
+                                count += 1
 
-                            # if (count%10 == 0):
-                            #     print "status: " + str(count) + "/" + str(num_combinations)
+                                # if (count%10 == 0):
+                                #     print "status: " + str(count) + "/" + str(num_combinations)
 
-                            # if count > 5:
-                            #     import IPython
-                            #     IPython.embed()
-                            #     assert(False)
+                                # if count > 5:
+                                #     import IPython
+                                #     IPython.embed()
+                                #     assert(False)
 
-    fd.close()
 
     roscpp_shutdown()
     #np.arange(0,len(xs)+len(ys)+len(zs)+len(rs)+len(ps)+len(yaws)),

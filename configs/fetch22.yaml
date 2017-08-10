@@ -1,23 +1,23 @@
 ---
 x_lim:
-  min: -0.9
-  max: 0.9
-  step: 0.2
+  min: 0.0
+  max: 1.2
+  step: 0.1
 
 y_lim:
-  min: -0.9
-  max: 0.9
-  step: 0.2
+  min: -1.1
+  max: 1.1
+  step: 0.1
 
 z_lim:
   min: 0.0
-  max: 1.8
-  step: 0.2
+  max: 2.0
+  step: 0.1
 
 roll_lim:
   min: -math.pi
   max: math.pi
-  step: math.pi/4
+  step: math.pi
 
 pitch_lim:
   min: -math.pi
@@ -29,8 +29,8 @@ yaws_lim:
   max: math.pi
   step: math.pi/4
 
-planner_time_limit: 0.005
+planner_time_limit: 0.1
 limits_reference_frame: 'base_link'
 robot_move_group: 'arm'
 end_effector_name: wrist_roll_link
-use_ik_only: True
+use_ik_only: False

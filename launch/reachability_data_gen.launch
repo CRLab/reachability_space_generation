@@ -1,5 +1,7 @@
 <launch>
 	<arg name="robot" />
+	<env name="ROSCONSOLE_CONFIG_FILE"
+	   value="$(find reachability_space_generation)/launch/custom_rosconsole.conf"/>
 
 	<!-- Start MoveIt -->
 	<include file="$(find fetch_moveit_config)/launch/move_group.launch" >

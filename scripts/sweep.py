@@ -108,7 +108,7 @@ class RobotReachableSpace(object):
 
         if use_ik_only:
             ik_result = self.get_ik(target_pose, end_effector_name)        
-            return ik_result.error_code == 1
+            return ik_result.error_code.val == 1
         else:
             plan = self.get_plan(target_pose, end_effector_name)        
             return len(plan.joint_trajectory.points) > 0
@@ -165,7 +165,7 @@ if __name__ == '__main__':
                     for pitch in tqdm(pitchs, desc='pitch'):
                         for yaw in tqdm(yaws, desc='yaws'):
                             f = PyKDL.Frame(PyKDL.Rotation.RPY(roll, pitch, yaw), PyKDL.Vector(x,y,z))
-                            pose.pose = tf_conversions.posemath.toMsg(f)                        
+                            pose.pose = tf_conversions.posemath.toMsg(f)
 
                             # # these lines are not needed except for special data collection 
                             # if USE_IK_ONLY:
@@ -175,7 +175,7 @@ if __name__ == '__main__':
                             #     # compute full moveit plan
                             #     plan = robot_reach_space.get_plan(pose, end_effector_name)
 
-                            reachable = robot_reach_space.query_pose(pose, end_effector_name, USE_IK_ONLY)
+                            reachable = int(robot_reach_space.query_pose(pose, end_effector_name, USE_IK_ONLY))
 
 
                             data = str(count) + " " + str(x) + " " + str(y) + " " + str(z) + " " + str(roll) + " " + str(pitch) + " " + str(yaw) + " " + str(reachable) +"\n"

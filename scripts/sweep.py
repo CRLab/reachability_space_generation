@@ -96,7 +96,7 @@ class RobotReachableSpace(object):
         service_request.ik_link_name = end_effector_link
         service_request.pose_stamped = target_pose
         service_request.timeout.secs= self.planner_time_limit
-        service_request.avoid_collisions = False
+        service_request.avoid_collisions = True
 
         try:
             resp = self.compute_ik(ik_request = service_request)

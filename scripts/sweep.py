@@ -1,25 +1,26 @@
 #!/usr/bin/python
 
 import sys
-import rospy
-from moveit_commander import RobotCommander, roscpp_initialize, roscpp_shutdown
-from moveit_msgs.msg import RobotState
+import os
 import numpy as np
+
 import math
 import PyKDL
 import tf_conversions
 import rospy
-import rosparam, rospkg
-import os
-from tqdm import tqdm
-
-import datetime
-
-import yaml
-
+import rosparam
+import rospkg
+from moveit_commander import RobotCommander, roscpp_initialize, roscpp_shutdown
+from moveit_msgs.msg import RobotState
+import tf
 from geometry_msgs.msg import Transform, PoseStamped
 from moveit_msgs.srv import GetPositionIK
 from moveit_msgs.msg import PositionIKRequest
+
+from tqdm import tqdm
+import cProfile
+import StringIO
+import pstats
 
 
 def load_params_ros():
@@ -90,33 +91,72 @@ class RobotReachableSpace(object):
         """
         :param target_pose:  a PoseStamped give the desired position of the endeffector.
         """
-        
+
         service_request = PositionIKRequest()
         service_request.group_name = self.group
         service_request.ik_link_name = end_effector_link
         service_request.pose_stamped = target_pose
-        service_request.timeout.secs= self.planner_time_limit
+        service_request.timeout.secs = self.planner_time_limit
         service_request.avoid_collisions = True
 
         try:
-            resp = self.compute_ik(ik_request = service_request)
+            resp = self.compute_ik(ik_request=service_request)
             return resp
         except rospy.ServiceException, e:
-            print "Service call failed: %s"%e
+            print "Service call failed: %s" % e
 
     def query_pose(self, target_pose, end_effector_name='gripper_link', use_ik_only=True):
 
         if use_ik_only:
-            ik_result = self.get_ik(target_pose, end_effector_name)        
+            ik_result = self.get_ik(target_pose, end_effector_name)
             return ik_result.error_code.val == 1
         else:
-            plan = self.get_plan(target_pose, end_effector_name)        
+            plan = self.get_plan(target_pose, end_effector_name)
             return len(plan.joint_trajectory.points) > 0
 
 
+def barrett_grasp_pose_to_moveit_grasp_pose(arm_move_group_commander, approach_tran_pose_in_world,
+                                            approach_tran_to_end_effector_tran_matrix,
+                                            grasp_frame='/approach_tran'):
+    """
+    :param arm_move_group_commander: A move_group command from which to get the end effector link.
+    :type arm_move_group_commander: moveit_commander.MoveGroupCommander
+    """
+    # get the matrix representing the approach frame in the world coord system
+    graspit_grasp_msg_final_grasp_tran_matrix = tf_conversions.toMatrix(
+        tf_conversions.fromMsg(approach_tran_pose_in_world))
+
+    # where in the world is the end effector for this grasp
+    actual_ee_pose_matrix = np.dot(graspit_grasp_msg_final_grasp_tran_matrix, approach_tran_to_end_effector_tran_matrix)
+
+    # convert matrix back to msg
+    ee_pose_in_world = tf_conversions.toMsg(tf_conversions.fromMatrix(actual_ee_pose_matrix))
+    return ee_pose_in_world
+
+
+def get_approach_to_ee(arm_move_group_commander, grasp_frame='/approach_tran'):
+    listener = tf.TransformListener()
+
+    try:
+        listener.waitForTransform(grasp_frame, arm_move_group_commander.get_end_effector_link(),
+                                  rospy.Time(0), timeout=rospy.Duration(1))
+        at_to_ee_tran, at_to_ee_rot = listener.lookupTransform(grasp_frame,
+                                                               arm_move_group_commander.get_end_effector_link(),
+                                                               rospy.Time())
+    except Exception as e:
+        rospy.logerr("graspit_grasp_pose_to_moveit_grasp_pose::\n " +
+                     "Failed to find transform from %s to %s" % (
+                     grasp_frame, arm_move_group_commander.get_end_effector_link()))
+
+    approach_tran_to_end_effector_tran_matrix = tf.TransformerROS().fromTranslationRotation(at_to_ee_tran, at_to_ee_rot)
+
+    return approach_tran_to_end_effector_tran_matrix
 
 
 if __name__ == '__main__':
+
+    roscpp_initialize(sys.argv)
+    rospy.init_node('moveit_py_demo', anonymous=True)
 
     USE_IK_ONLY = rosparam.get_param('/use_ik_only')
 
@@ -126,76 +166,55 @@ if __name__ == '__main__':
     xs = params['xs']
     ys = params['ys']
     zs = params['zs']
-    rolls =  params['rolls']
-    pitchs =  params['pitchs']
-    yaws =  params['yaws']
+    rolls = params['rolls']
+    pitchs = params['pitchs']
+    yaws = params['yaws']
 
-    planner_time_limit =  params['planner_time_limit']
-    robot_move_group =  params['robot_move_group']
-    limits_reference_frame =  params['limits_reference_frame']
+    planner_time_limit = params['planner_time_limit']
+    robot_move_group = params['robot_move_group']
+    limits_reference_frame = params['limits_reference_frame']
     end_effector_name = params['end_effector_name']
 
-    num_combinations = len(xs)*len(ys)*len(zs)*len(rolls)*len(pitchs)*len(yaws)
-    print "Looking over: " + str(num_combinations) + " combinations with max time(s) per sample:  " + str(planner_time_limit)
-    print "This will take: "  + str(num_combinations * planner_time_limit / 60 / 60 )  + " hours"
-
-    roscpp_initialize(sys.argv)
-    rospy.init_node('moveit_py_demo', anonymous=True)
-
-    count = 0
+    num_combinations = len(xs) * len(ys) * len(zs) * len(rolls) * len(pitchs) * len(yaws)
+    print "Looking over: " + str(num_combinations) + " combinations with max time(s) per sample:  " + str(
+        planner_time_limit)
+    print "This will take: " + str(num_combinations * planner_time_limit / 60 / 60) + " hours"
 
     reach_data_location = rospkg.RosPack().get_path('reachability_space_generation') + '/data/'
     if not os.path.exists(reach_data_location):
         os.makedirs(reach_data_location)
-    reach_data_location += '/reachability_data_'
-    # fmt = '%Y-%m-%d-%H-%M-%S'
-    # reach_data_location += datetime.datetime.now().strftime(fmt)
-    reach_data_location += '.csv'
+    reach_data_location += 'reachability_data_.csv'
 
     robot_reach_space = RobotReachableSpace(group=robot_move_group, planner_time_limit=planner_time_limit)
+
+    approach_tran_to_ee_tran_matrix = get_approach_to_ee(robot_reach_space.m)
 
     pose = PoseStamped()
     pose.header.frame_id = limits_reference_frame
 
+    results = [None] * num_combinations
+    count = 0
+    for x in tqdm(xs, desc='x'):
+        for y in tqdm(ys, desc='y'):
+            for z in tqdm(zs, desc='z'):
+                for roll in tqdm(rolls, desc='roll'):
+                    for pitch in tqdm(pitchs, desc='pitch'):
+                        for yaw in tqdm(yaws, desc='yaws'):
+
+                            f = PyKDL.Frame(PyKDL.Rotation.RPY(roll, pitch, yaw), PyKDL.Vector(x, y, z))
+                            pose.pose = tf_conversions.posemath.toMsg(f)
+                            pose.pose = barrett_grasp_pose_to_moveit_grasp_pose(robot_reach_space.m, pose.pose,
+                                                                                approach_tran_to_ee_tran_matrix,
+                                                                                grasp_frame='/approach_tran')
+
+                            reachable = int(robot_reach_space.query_pose(pose, end_effector_name, USE_IK_ONLY))
+                            results[count] = "{} {} {} {} {} {} {} {}\n".format(count, x, y, z, roll, pitch, yaw, reachable)
+
+                            count += 1
+
     with open(reach_data_location, 'w') as fd:
-        for x in tqdm(xs, desc='x'):
-            for y in tqdm(ys, desc='y'):
-                for z in tqdm(zs, desc='z'):
-                    for roll in tqdm(rolls, desc='roll'):
-                        for pitch in tqdm(pitchs, desc='pitch'):
-                            for yaw in tqdm(yaws, desc='yaws'):
-                                f = PyKDL.Frame(PyKDL.Rotation.RPY(roll, pitch, yaw), PyKDL.Vector(x,y,z))
-                                pose.pose = tf_conversions.posemath.toMsg(f)
-
-                                # # these lines are not needed except for special data collection
-                                # if USE_IK_ONLY:
-                                #     # compute ik for the given pose
-                                #     ik_result = robot_reach_space.get_ik(pose, robot_move_group, end_effector_name)
-                                # if not USE_IK_ONLY:
-                                #     # compute full moveit plan
-                                #     plan = robot_reach_space.get_plan(pose, end_effector_name)
-
-                                reachable = int(robot_reach_space.query_pose(pose, end_effector_name, USE_IK_ONLY))
-
-
-                                data = str(count) + " " + str(x) + " " + str(y) + " " + str(z) + " " + str(roll) + " " + str(pitch) + " " + str(yaw) + " " + str(reachable) +"\n"
-                                fd.write(data)
-
-                                count += 1
-
-                                # if (count%10 == 0):
-                                #     print "status: " + str(count) + "/" + str(num_combinations)
-
-                                # if count > 5:
-                                #     import IPython
-                                #     IPython.embed()
-                                #     assert(False)
-
+        result_str = "".join(results)
+        fd.write(result_str)
+        fd.close()
 
     roscpp_shutdown()
-    #np.arange(0,len(xs)+len(ys)+len(zs)+len(rs)+len(ps)+len(yaws)),
-    # listener = tf.TransformListener()
-    # position, quaternion = listener.lookupTransform("/base_link", "/arm", rospy.Time(0))
-    # rosrun tf tf_echo /base_link /gripper_link
-
-

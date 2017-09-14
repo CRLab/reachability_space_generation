@@ -29,3 +29,7 @@ class ReachabilityDB(object):
                   "reachable": reachable}
 
         self.collection.insert(result)
+        
+
+    def get_data(self):
+        pass

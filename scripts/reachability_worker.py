@@ -121,9 +121,14 @@ def get_approach_to_ee(arm_move_group_commander, grasp_frame='/approach_tran'):
 
 
 if __name__ == '__main__':
+    roscpp_initialize(sys.argv)
+    rospy.init_node('moveit_py_demo', anonymous=True)
+
     parser = argparse.ArgumentParser(description='Upload poses to be checked for reachability.')
+    CONFIG_ROOT_DEFAULT = rospkg.RosPack().get_path('reachability_space_generation') + '/configs'
     parser.add_argument('--CONFIG_ROOT',
-                        default="/home/iakinola/ros/reachability_space_ws/src/reachability_space_generation/configs",
+                        default=CONFIG_ROOT_DEFAULT,
+                        # default="/home/iakinola/ros/reachability_space_ws/src/reachability_space_generation/configs",
                         type=str,
                         help='Directory containing configuration files describing what tasks to upload to mongo')
 
@@ -139,8 +144,7 @@ if __name__ == '__main__':
     for k, v in config.items():
         args.__dict__[k] = v
 
-    roscpp_initialize(sys.argv)
-    rospy.init_node('moveit_py_demo', anonymous=True)
+
 
     reach_db = reachability_db.ReachabilityDB()
 

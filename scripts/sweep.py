@@ -27,31 +27,13 @@ def load_params_ros():
     # this function loads the relevant parameters from the params server
     params = {}
 
-    params['xs'] = np.arange(
-        rosparam.get_param('/x_lim/min'),
-        rosparam.get_param('/x_lim/max'),
-        rosparam.get_param('/x_lim/step'))
-    params['ys'] = np.arange(
-        rosparam.get_param('/y_lim/min'),
-        rosparam.get_param('/y_lim/max'),
-        rosparam.get_param('/y_lim/step'))
-    params['zs'] = np.arange(
-        rosparam.get_param('/z_lim/min'),
-        rosparam.get_param('/z_lim/max'),
-        rosparam.get_param('/z_lim/step'))
+    params['xs'] = rosparam.get_param('/xs')
+    params['ys'] = rosparam.get_param('/ys')
+    params['zs'] = rosparam.get_param('/zs')
 
-    params['rolls'] = np.arange(
-        eval(rosparam.get_param('/roll_lim/min')),
-        eval(rosparam.get_param('/roll_lim/max')),
-        eval(rosparam.get_param('/roll_lim/step')))
-    params['pitchs'] = np.arange(
-        eval(rosparam.get_param('/pitch_lim/min')),
-        eval(rosparam.get_param('/pitch_lim/max')),
-        eval(rosparam.get_param('/pitch_lim/step')))
-    params['yaws'] = np.arange(
-        eval(rosparam.get_param('/yaws_lim/min')),
-        eval(rosparam.get_param('/yaws_lim/max')),
-        eval(rosparam.get_param('/yaws_lim/step')))
+    params['rolls'] = rosparam.get_param('/rolls')
+    params['pitchs'] = rosparam.get_param('/pitchs')
+    params['yaws'] = rosparam.get_param('/yaws')
 
     params['planner_time_limit'] = rosparam.get_param('/planner_time_limit')
     params['robot_move_group'] = rosparam.get_param('/robot_move_group')

@@ -24,6 +24,7 @@ import pstats
 import random
 import argparse
 import yaml
+import copy
 
 import reachability_db
 
@@ -154,23 +155,38 @@ if __name__ == '__main__':
     approach_tran_to_ee_tran_matrix = get_approach_to_ee(robot_reach_space.m)
 
     while True:
-        task = reach_db.get_task()
+        bulk_task = reach_db.get_bulk_task()
+        tasks_to_be_uploaded = []
+        for roll in args.rolls:
+            for pitch in args.pitchs:
+                for yaw in args.yaws:
+                    
+                    task = copy.copy(bulk_task)
+                    del task["_id"]
+                    del task["status"]
+                    task['roll'] = roll
+                    task['pitch'] = pitch
+                    task['yaw'] = yaw
 
-        f = PyKDL.Frame(PyKDL.Rotation.RPY(task["roll"], task["pitch"], task["yaw"]),
-                        PyKDL.Vector(task["x"], task["y"], task["z"]))
+                    f = PyKDL.Frame(PyKDL.Rotation.RPY(task["roll"], task["pitch"], task["yaw"]),
+                                    PyKDL.Vector(task["x"], task["y"], task["z"]))
 
-        approach_ps = PoseStamped()
-        approach_ps.header.frame_id = args.limits_reference_frame
-        approach_ps.pose = tf_conversions.posemath.toMsg(f)
+                    approach_ps = PoseStamped()
+                    approach_ps.header.frame_id = args.limits_reference_frame
+                    approach_ps.pose = tf_conversions.posemath.toMsg(f)
 
-        ee_ps = PoseStamped()
-        ee_ps.header.frame_id = args.limits_reference_frame
-        ee_ps.pose = barrett_grasp_pose_to_moveit_grasp_pose(robot_reach_space.m, approach_ps.pose,
-                                                            approach_tran_to_ee_tran_matrix,
-                                                            grasp_frame='/approach_tran')
+                    ee_ps = PoseStamped()
+                    ee_ps.header.frame_id = args.limits_reference_frame
+                    ee_ps.pose = barrett_grasp_pose_to_moveit_grasp_pose(robot_reach_space.m, approach_ps.pose,
+                                                                        approach_tran_to_ee_tran_matrix,
+                                                                        grasp_frame='/approach_tran')
 
-        reachable = bool(robot_reach_space.query_pose(ee_ps, args.end_effector_name, args.use_ik_only))
-        print "finished  task: " + str(task)
-        reach_db.record_task_result(count=task["count"], reachable=reachable)
+                    reachable = bool(robot_reach_space.query_pose(ee_ps, args.end_effector_name, args.use_ik_only))
+                    task["reachable"] = reachable
+
+                    tasks_to_be_uploaded.append(task)
+
+        print "finished  bulk task: " + str(bulk_task)
+        reach_db.record_task_result(count=bulk_task["count"], tasks_to_be_uploaded=tasks_to_be_uploaded)
 
     roscpp_shutdown()

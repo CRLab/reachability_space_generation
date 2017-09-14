@@ -29,25 +29,19 @@ if __name__ == '__main__':
 
     reach_db = reachability_db.ReachabilityDB()
 
-    num_combinations = len(args.xs) * len(args.ys) * len(args.zs) * len(args.rolls) * len(args.pitchs) * len(args.yaws)
+    num_combinations = len(args.xs) * len(args.ys) * len(args.zs)
     tasks = [None] * num_combinations
     count = 0
     for x in tqdm(args.xs, desc='xs'):
         for y in args.ys:
             for z in args.zs:
-                for roll in args.rolls:
-                    for pitch in args.pitchs:
-                        for yaw in args.yaws:
-                            task = {"count": count,
-                                      "x": x,
-                                      "y": y,
-                                      "z": z,
-                                      "roll": roll,
-                                      "pitch": pitch,
-                                      "yaw": yaw,
-                                      "status": "Incomplete"}
-                            tasks[count] = task
-                            count += 1
+                task = {"count": count,
+                          "x": x,
+                          "y": y,
+                          "z": z,
+                          "status": "Incomplete"}
+                tasks[count] = task
+                count += 1
     print "Gathered Tasks, Doing Bulk Upload"
     ids = reach_db.bulk_add(tasks)
     print "Finished!"

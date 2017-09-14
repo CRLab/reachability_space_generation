@@ -7,29 +7,21 @@ class ReachabilityDB(object):
         self.mongo_url = "mongodb://{}:27017".format(self.mongo_hostname)
 
         self.client = MongoClient(self.mongo_url)
-        self.collection = self.client.reachability.staubli_v2
-        self.collection.create_index([("x", DESCENDING),
-                                      ("y", DESCENDING),
-                                      ("z", DESCENDING),
-                                      ("roll", DESCENDING),
-                                      ("pitch", DESCENDING),
-                                      ("yaw", DESCENDING)],
+        self.collection = self.client.reachability.staubli_tasks
+        self.collection.create_index([("count", DESCENDING)],
                                      unique=True)
 
-    def add(self,
-            x, y, z, roll, pitch, yaw, reachable):
+    def bulk_add(self, tasks):
+        ids = self.collection.insert(tasks)
+        return ids
 
-        result = {
-                  "x": x,
-                  "y": y,
-                  "z": z,
-                  "roll": roll,
-                  "pitch": pitch,
-                  "yaw": yaw,
-                  "reachable": reachable}
+    def get_task(self):
+        task = self.collection.find_and_modify(query={"status": "Incomplete"},
+                                               just_one=True,
+                                               update={"$set": {'status': "In Progress"}})
+        return task
 
-        self.collection.insert(result)
-        
-
-    def get_data(self):
-        pass
+    def record_task_result(self, count, reachable):
+        self.collection.find_and_modify(query={"count": count},
+                                        just_one=True,
+                                        update={"$set": {'status': "Finished", 'reachable': reachable}})

@@ -7,7 +7,7 @@ class ReachabilityDB(object):
         self.mongo_url = "mongodb://{}:27017".format(self.mongo_hostname)
 
         self.client = MongoClient(self.mongo_url)
-        self.collection = self.client.reachability.staubli
+        self.collection = self.client.reachability.staubli_v2
         self.collection.create_index([("x", DESCENDING),
                                       ("y", DESCENDING),
                                       ("z", DESCENDING),

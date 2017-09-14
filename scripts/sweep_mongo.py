@@ -31,7 +31,9 @@ def load_params_ros():
     # this function loads the relevant parameters from the params server
     params = {}
 
-    params['xs'] = rosparam.get_param('/xs')
+    xs = [float(os.environ['reachability_x'])]
+
+    # params['xs'] = rosparam.get_param('/xs')
     params['ys'] = rosparam.get_param('/ys')
     params['zs'] = rosparam.get_param('/zs')
 

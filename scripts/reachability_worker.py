@@ -1,5 +1,5 @@
 #!/usr/bin/python
-
+import gc
 import sys
 import os
 
@@ -104,5 +104,5 @@ if __name__ == '__main__':
 
         print "finished  bulk task: " + str(bulk_task)
         reach_db.record_task_result(count=bulk_task["count"], tasks_to_be_uploaded=tasks_to_be_uploaded)
+        gc.collect()
 
-    roscpp_shutdown()

@@ -1,36 +1,34 @@
 ---
-x_lim:
-  min: 0.0
-  max: 1.2
-  step: 0.1
+x_min: 0.0
+x_max: 1.2
+x_step: 0.05
 
-y_lim:
-  min: -1.1
-  max: 1.1
-  step: 0.1
+y_min: -1.1
+y_max: 1.1
+y_step: 0.05
 
-z_lim:
-  min: 0.0
-  max: 2.0
-  step: 0.1
+z_min: 0.0
+z_max: 2.0
+z_step: 0.05
 
-roll_lim:
-  min: -math.pi
-  max: math.pi
-  step: math.pi
+roll_min: -math.pi
+roll_max: math.pi
+roll_step: math.pi
 
-pitch_lim:
-  min: -math.pi
-  max: math.pi
-  step: math.pi/4
+pitch_min: -math.pi
+pitch_max: math.pi
+pitch_step: math.pi/8
 
-yaws_lim:
-  min: -math.pi
-  max: math.pi
-  step: math.pi/4
+yaw_min: -math.pi
+yaw_max: math.pi
+yaw_step: math.pi/8
 
 planner_time_limit: 0.1
 limits_reference_frame: 'base_link'
 robot_move_group: 'arm'
 end_effector_name: wrist_roll_link
+graspit_link_name: wrist_roll_link
 use_ik_only: False
+
+incomplete_task_collection_name: fetch_to_do
+finished_task_collection_name: fetch_finished

@@ -2,16 +2,16 @@ from pymongo import MongoClient, ASCENDING, DESCENDING
 
 
 class ReachabilityDB(object):
-    def __init__(self):
+    def __init__(self, incomplete_task_collection_name, finished_task_collection_name):
         self.mongo_hostname = "mainland.cs.columbia.edu"
         self.mongo_url = "mongodb://{}:27017".format(self.mongo_hostname)
 
         self.client = MongoClient(self.mongo_url)
-        self.bulk_tasks_collection = self.client.reachability.bulk_staubli_tasks
+        self.bulk_tasks_collection = self.client.reachability_space[incomplete_task_collection_name]
         self.bulk_tasks_collection.create_index([("count", DESCENDING)],
                                                 unique=True)
 
-        self.finished_results_collection = self.client.reachability.finished_staubli_tasks
+        self.finished_results_collection = self.client.reachability_space[finished_task_collection_name]
 
     def bulk_add(self, tasks):
         ids = self.bulk_tasks_collection.insert(tasks)

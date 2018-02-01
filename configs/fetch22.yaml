@@ -28,7 +28,7 @@ limits_reference_frame: 'base_link'
 robot_move_group: 'arm'
 end_effector_name: wrist_roll_link
 graspit_link_name: wrist_roll_link
-use_ik_only: False
+use_ik_only: True
 
 incomplete_task_collection_name: fetch_to_do
 finished_task_collection_name: fetch_finished

@@ -1,5 +1,8 @@
 #!/usr/bin/python
 
+from memory_profiler import profile
+from pympler import muppy
+from pympler import summary
 import sys
 import os
 
@@ -15,6 +18,8 @@ import copy
 import tf
 import math
 import numpy as np
+
+import gc
 
 import reachability_db
 import reachability_space_generator
@@ -34,25 +39,28 @@ def get_transfrom(reference_frame, target_frame):
                          reference_frame, target_frame,))
     return translation_rotation
 
-
-if __name__ == '__main__':
+def run():
     roscpp_initialize(sys.argv)
     rospy.init_node('moveit_py_demo', anonymous=True)
 
     parser = argparse.ArgumentParser(description='Upload poses to be checked for reachability.')
     CONFIG_ROOT_DEFAULT = rospkg.RosPack().get_path('reachability_space_generation') + '/configs'
-    parser.add_argument('--CONFIG_ROOT',
+    parser.add_argument('--mCONFIG_ROOT',
                         default=CONFIG_ROOT_DEFAULT,
                         type=str,
                         help='Directory containing configuration files describing what tasks to upload to mongo')
 
-    parser.add_argument('CONFIG_FILENAME',
+    parser.add_argument('mCONFIG_FILENAME',
+                        default="fetch22.yaml",
                         type=str,
                         help='configuration filename describing what tasks to upload to mongo')
 
-    args = parser.parse_args()
+    args, _ = parser.parse_known_args()
 
-    config_filepath = os.path.join(args.CONFIG_ROOT, args.CONFIG_FILENAME)
+    #config_filepath123 = os.path.join(args.mCONFIG_ROOT, args.mCONFIG_FILENAME)
+    
+    config_filepath = "/home/iakinola/wrkspc/Spring2018/reachability_planning_ws/src/reachability_space_generation/configs/fetch22.yaml"
+
     config = yaml.load(open(config_filepath))
     for k, v in config.items():
         args.__dict__[k] = v
@@ -68,7 +76,9 @@ if __name__ == '__main__':
 
     old_ee_to_new_ee_translation_rotation = get_transfrom(args.graspit_link_name, args.end_effector_name)
 
-    while True:
+    num_done = 0
+    while num_done < 100:
+        num_done +=1
         bulk_task = reach_db.get_bulk_task()
         tasks_to_be_uploaded = []
         cache = dict()
@@ -102,7 +112,16 @@ if __name__ == '__main__':
 
                     tasks_to_be_uploaded.append(task)
 
+
+
         print "finished  bulk task: " + str(bulk_task)
         reach_db.record_task_result(count=bulk_task["count"], tasks_to_be_uploaded=tasks_to_be_uploaded)
 
-    roscpp_shutdown()
+        gc.collect()
+        objects_summary = summary.summarize(muppy.get_objects())
+        import cPickle
+        cPickle.dump(objects_summary, open(str(num_done) + "b.pkl",'w'))
+
+
+if __name__ == '__main__':
+    run()

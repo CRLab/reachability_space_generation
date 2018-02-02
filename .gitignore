@@ -6,4 +6,4 @@ src/CMakeLists.txt
 .catkin_workspace
 *.csv
 energy_function_wrkspc/nanoflann/*
-
+**/.idea/*

@@ -25,3 +25,15 @@ source ../../../devel/setup.bash
 ```
 python download_mongo_db.py robot_tasks_to_do robot_tasks_finished robot_dense_reachability.csv
 ```
+
+## Generate random query poses and reachability checks to file
+```
+source devel/setup.bash
+roslaunch reachability_space_generation fetch_moveit.launch
+```
+```
+source devel/setup.bash
+cd src/reachability_space_generation/scripts/reachability_space_generation/
+python generate_random_query_reachability_data.py fetch22.yaml 100
+```
+Note that yaml file (e.g. *fetch22.yaml*) contains the robot's workspace specification as above while the second argument (integer e.g. 100) specifies the number of random query poses to generate

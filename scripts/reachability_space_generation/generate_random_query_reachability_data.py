@@ -15,6 +15,7 @@ import tf
 import math
 import time
 import numpy as np
+import tqdm
 
 import reachability_space_generator
 from reachability_analyzer.message_utils import change_end_effector_link
@@ -75,7 +76,7 @@ if __name__ == '__main__':
     output_filepath = "random_reachability_query_data_{}.csv".format(time.strftime("y%y_m%m_d%d_h%H_m%M_s%S"))
     out_file = open(output_filepath, 'w')
 
-    for i in range(args.NUM_QUERY_POSES):
+    for i in tqdm.tqdm(range(args.NUM_QUERY_POSES)):
         f = PyKDL.Frame(PyKDL.Rotation.RPY(rolls[i], pitchs[i], yaws[i]),
                         PyKDL.Vector(xs[i], ys[i], zs[i]))
 

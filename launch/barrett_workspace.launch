@@ -1,0 +1,12 @@
+<launch>
+
+	<group ns="world_manager">
+        <!--Load the walls for your workspace-->
+        <rosparam command="load" file="$(find icra_barrett_experiments)/configs/staubli.workspace.yaml"/>
+
+        <node name="world_manager" pkg="world_manager" type="world_manager_server.py" output="screen"/>
+	</group>
+
+	<include file="$(find reachability_space_generation)/launch/barrett_moveit.launch"/>
+
+</launch>

@@ -13,6 +13,8 @@ import argparse
 import yaml
 import copy
 import tf
+import tf2_ros
+import tf2_kdl
 import math
 import numpy as np
 
@@ -28,10 +30,17 @@ def get_transfrom(reference_frame, target_frame):
                                   rospy.Time(0), timeout=rospy.Duration(1))
         translation_rotation = listener.lookupTransform(reference_frame, target_frame,
                                                         rospy.Time())
-    except Exception as e:
-        rospy.logerr("get_transfrom::\n " +
-                     "Failed to find transform from %s to %s" % (
-                         reference_frame, target_frame,))
+    except Exception as e1:
+        try:
+            tf_buffer = tf2_ros.Buffer()
+            tf2_listener = tf2_ros.TransformListener(tf_buffer)
+            transform_stamped = tf_buffer.lookup_transform(reference_frame, target_frame,
+                                                           rospy.Time(0), timeout=rospy.Duration(1))
+            translation_rotation = tf_conversions.toTf(tf2_kdl.transform_to_kdl(transform_stamped))
+        except Exception as e2:
+            rospy.logerr("get_transfrom::\n " +
+                         "Failed to find transform from %s to %s" % (
+                             reference_frame, target_frame,))
     return translation_rotation
 
 

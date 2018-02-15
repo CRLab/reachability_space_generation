@@ -3,7 +3,7 @@ from pymongo import MongoClient, ASCENDING, DESCENDING
 
 class ReachabilityDB(object):
     def __init__(self, incomplete_task_collection_name, finished_task_collection_name):
-        self.mongo_hostname = "mainland.cs.columbia.edu"
+        self.mongo_hostname = "localhost"
         self.mongo_url = "mongodb://{}:27017".format(self.mongo_hostname)
 
         self.client = MongoClient(self.mongo_url)

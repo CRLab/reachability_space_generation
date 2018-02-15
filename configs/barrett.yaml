@@ -1,27 +1,27 @@
 ---
-x_min: -1.1
+x_min: -1.2
 x_max: 0.2
-x_step: 0.05
+x_step: 0.1
 
-y_min: -1.3
-y_max: 1.2
-y_step: 0.05
+y_min: -1.2
+y_max: 1.3
+y_step: 0.1
 
 z_min: -0.5
 z_max: 1.1
-z_step: 0.05
+z_step: 0.1
 
 roll_min: -math.pi
-roll_max: '0'
-roll_step: math.pi/8
+roll_max: math.pi
+roll_step: math.pi/2
 
 pitch_min: -math.pi
 pitch_max: math.pi
-pitch_step: math.pi/8
+pitch_step: math.pi/4
 
 yaw_min: -math.pi
 yaw_max: math.pi
-yaw_step: math.pi/8
+yaw_step: math.pi/4
 
 planner_time_limit: 0.1
 limits_reference_frame: 'staubli_rx60l_link1'

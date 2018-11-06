@@ -1,36 +1,34 @@
 ---
-x_lim:
-  min: -0.8
-  max: 0.8
-  step: 0.1
+x_min: -0.9
+x_max: 0.9
+x_step: 0.1
 
-y_lim:
-  min: -0.8
-  max: 0.8
-  step: 0.1
+y_min: -0.9
+y_max: 0.9
+y_step: 0.1
 
-z_lim:
-  min: -0.8
-  max: 0.8
-  step: 0.1
+z_min: 0.1
+z_max: 0.9
+z_step: 0.1
 
-roll_lim:
-  min: 0.0
-  max: math.pi*2
-  step: 1
+roll_min: -math.pi
+roll_max: math.pi
+roll_step: math.pi/5
 
-pitch_lim:
-  min: math.pi*-0.5
-  max: math.pi*0.5
-  step: 0.1
+pitch_min: -math.pi
+pitch_max: math.pi
+pitch_step: math.pi/5
 
-yaws_lim:
-  min: 0.0
-  max: math.pi*2
-  step: 1
+yaw_min: -math.pi/2
+yaw_max: math.pi/2
+yaw_step: math.pi/5
 
 planner_time_limit: 0.5
 limits_reference_frame: 'world'
-robot_move_group: "manipulator"
-end_effector_name: gripper_link
+robot_move_group: arm
+end_effector_name: m1n6s200_end_effector
+graspit_link_name: m1n6s200_link_6
 use_ik_only: True
+
+incomplete_task_collection_name: mico_to_do
+finished_task_collection_name: mico_finished

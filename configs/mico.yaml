@@ -7,7 +7,7 @@ y_min: -0.9
 y_max: 0.9
 y_step: 0.1
 
-z_min: 0.1
+z_min: -0.1
 z_max: 0.9
 z_step: 0.1
 
@@ -21,7 +21,7 @@ pitch_step: math.pi/5
 
 yaw_min: -math.pi/2
 yaw_max: math.pi/2
-yaw_step: math.pi/5
+yaw_step: math.pi/3
 
 planner_time_limit: 0.5
 limits_reference_frame: 'world'
